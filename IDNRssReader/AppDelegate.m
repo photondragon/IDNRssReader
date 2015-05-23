@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ArticlesController.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +15,19 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+
+	CGRect rect = [UIScreen mainScreen].bounds;
+	self.window = [[UIWindow alloc] initWithFrame:rect];
+	self.window.backgroundColor = [UIColor whiteColor];
+
+	ArticlesController* c = [[ArticlesController alloc] init];
+
+	UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:c];
+
+	self.window.rootViewController = nav;
+
+	[self.window makeKeyAndVisible];
 	return YES;
 }
 
