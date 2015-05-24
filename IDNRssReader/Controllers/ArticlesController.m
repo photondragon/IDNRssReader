@@ -14,6 +14,10 @@
 #import "IDNAsyncTask.h"
 
 @interface ArticlesController ()
+<UITableViewDataSource,
+UITableViewDelegate>
+
+@property(nonatomic,strong) UITableView* tableView;
 
 @property(nonatomic,strong) NSArray* articles;
 @property(nonatomic) BOOL firstLoad;
@@ -22,6 +26,24 @@
 @end
 
 @implementation ArticlesController
+
+- (void)dealloc
+{
+	NSLog(@"%s", __func__);
+}
+
+- (void)loadView
+{
+	_tableView = [[UITableView alloc] init];
+	_tableView.dataSource = self;
+	_tableView.delegate = self;
+	_tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+	UIView* view = [[UIView alloc] init];
+	[view addSubview:_tableView];
+
+	self.view = view;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,18 +54,24 @@
 	[self.tableView.topRefreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
 
 	self.firstLoad = YES;
-	[self refresh:nil];
 }
 
 - (void)refresh:(id)sender
 {
+	NSString* url = self.rssInfo.url;
+	if(url.length==0)
+	{
+		[self prompt:@"加载失败\n无效的URL地址" duration:2];
+		return;
+	}
+	
 	if(self.loading)
 		return;
 
 	self.loading = YES;
 	if(self.firstLoad)
 	{
-		[self.navigationController prompting:@"正在加载"];
+		[self prompting:@"正在加载"];
 		self.firstLoad = NO;
 	}
 	else
@@ -53,7 +81,7 @@
 	[IDNAsyncTask putTaskWithKey:@"articles" group:nil task:^id{
 		if([IDNAsyncTask isTaskCancelled])
 			return nil;
-		NSArray* articles  = [IDNFeedParser feedItemsWithUrl:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
+		NSArray* articles  = [IDNFeedParser feedItemsWithUrl:url];
 		if(articles==nil)
 		{
 			NSDictionary* errorInfo = @{NSLocalizedDescriptionKey:@"解析失败"};
@@ -64,39 +92,42 @@
 		ArticlesController* strongself = weakself;
 		if([obj isKindOfClass:[NSError class]])
 		{
-			[strongself.navigationController prompt:[NSString stringWithFormat:@"获取文章列表失败\n%@", [obj localizedDescription]] duration:2];
+			[strongself prompt:[NSString stringWithFormat:@"获取文章列表失败\n%@", [obj localizedDescription]] duration:2];
 		}
 		else
 		{
 			strongself.articles = obj;
-			[strongself.navigationController stopPrompt];
+			[strongself stopPrompt];
 		}
 		strongself.tableView.topRefreshControl.refreshing = NO;
 		strongself.loading = NO;
 	} cancelled:^{
 		ArticlesController* strongself = weakself;
-		[strongself.navigationController stopPrompt];
+		[strongself stopPrompt];
 		strongself.tableView.topRefreshControl.refreshing = NO;
 		strongself.loading = NO;
 	}];
-
-//	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//		NSArray* articles  = [IDNFeedParser feedItemsWithUrl:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
-//
-//		dispatch_async(dispatch_get_main_queue(), ^{
-//			ArticlesController* strongself = weakself;
-//			strongself.articles = articles;
-//			[strongself.navigationController stopPrompt];
-//			strongself.tableView.topRefreshControl.refreshing = NO;
-//			strongself.loading = NO;
-//		});
-//	});
 }
 
 - (void)setArticles:(NSArray *)articles
 {
 	_articles = articles;
 	[self.tableView reloadData];
+}
+
+- (void)setRssInfo:(RssInfo *)rssInfo
+{
+	[self view];
+	_rssInfo = rssInfo;
+	if(rssInfo==nil)
+	{
+		self.articles = nil;
+	}
+	else
+	{
+		self.title = rssInfo.title;
+		[self refresh:nil];
+	}
 }
 
 #pragma mark - Table view data source

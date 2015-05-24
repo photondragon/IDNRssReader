@@ -32,6 +32,9 @@
 		94D267881B0825CF00F696B3 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D267851B0825CF00F696B3 /* NSString+HTML.m */; };
 		94D267891B0825CF00F696B3 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D267871B0825CF00F696B3 /* NSDate+InternetDateTime.m */; };
 		94D2678C1B0825F200F696B3 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2678B1B0825F200F696B3 /* GTMNSString+HTML.m */; };
+		94D2D6421B11691100432BCC /* MyModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6411B11691100432BCC /* MyModels.m */; };
+		94D2D6451B1169F000432BCC /* RssManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6441B1169F000432BCC /* RssManage.m */; };
+		94D2D6481B11713600432BCC /* RSSsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6471B11713600432BCC /* RSSsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,12 @@
 		94D267871B0825CF00F696B3 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
 		94D2678A1B0825F200F696B3 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		94D2678B1B0825F200F696B3 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		94D2D6401B11691100432BCC /* MyModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyModels.h; sourceTree = "<group>"; };
+		94D2D6411B11691100432BCC /* MyModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyModels.m; sourceTree = "<group>"; };
+		94D2D6431B1169F000432BCC /* RssManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RssManage.h; sourceTree = "<group>"; };
+		94D2D6441B1169F000432BCC /* RssManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RssManage.m; sourceTree = "<group>"; };
+		94D2D6461B11713600432BCC /* RSSsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSsController.h; sourceTree = "<group>"; };
+		94D2D6471B11713600432BCC /* RSSsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +133,8 @@
 				9499943B1B085AA3000FCB1C /* ArticlesController.m */,
 				949994661B0861A9000FCB1C /* WebViewController.h */,
 				949994671B0861A9000FCB1C /* WebViewController.m */,
+				94D2D6461B11713600432BCC /* RSSsController.h */,
+				94D2D6471B11713600432BCC /* RSSsController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -131,6 +142,10 @@
 		9499943F1B085AA3000FCB1C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				94D2D6401B11691100432BCC /* MyModels.h */,
+				94D2D6411B11691100432BCC /* MyModels.m */,
+				94D2D6431B1169F000432BCC /* RssManage.h */,
+				94D2D6441B1169F000432BCC /* RssManage.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,18 +371,21 @@
 			files = (
 				949994641B085ACE000FCB1C /* UIImage+IDNExtend.m in Sources */,
 				949994681B0861A9000FCB1C /* WebViewController.m in Sources */,
+				94D2D6421B11691100432BCC /* MyModels.m in Sources */,
 				94D267591B0824F100F696B3 /* AppDelegate.m in Sources */,
 				949994631B085ACE000FCB1C /* UIBezierPath+IDNExtend.m in Sources */,
 				949994601B085ACE000FCB1C /* NSString+IDNExtend.m in Sources */,
 				94D2678C1B0825F200F696B3 /* GTMNSString+HTML.m in Sources */,
 				949994621B085ACE000FCB1C /* IDNRefreshControl.m in Sources */,
 				9499945E1B085ACE000FCB1C /* NSFileManager+IDNExtend.m in Sources */,
+				94D2D6481B11713600432BCC /* RSSsController.m in Sources */,
 				9499945D1B085ACE000FCB1C /* NSDate+IDNExtend.m in Sources */,
 				949994651B085ACE000FCB1C /* UIViewController+IDNPrompt.m in Sources */,
 				949994611B085ACE000FCB1C /* IDNImagePickerController.m in Sources */,
 				94D267831B08259200F696B3 /* MWFeedParser.m in Sources */,
 				949994401B085AA3000FCB1C /* ArticlesController.m in Sources */,
 				9499945B1B085ACE000FCB1C /* IDNFeedParser.m in Sources */,
+				94D2D6451B1169F000432BCC /* RssManage.m in Sources */,
 				94D267881B0825CF00F696B3 /* NSString+HTML.m in Sources */,
 				94D267891B0825CF00F696B3 /* NSDate+InternetDateTime.m in Sources */,
 				9499945C1B085ACE000FCB1C /* NSData+IDNExtend.m in Sources */,
@@ -493,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				INFOPLIST_FILE = IDNRssReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -504,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				INFOPLIST_FILE = IDNRssReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

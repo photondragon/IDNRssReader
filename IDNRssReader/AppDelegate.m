@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ArticlesController.h"
+#import "RSSsController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@
 	self.window = [[UIWindow alloc] initWithFrame:rect];
 	self.window.backgroundColor = [UIColor whiteColor];
 
-	ArticlesController* c = [[ArticlesController alloc] init];
+	RSSsController* c = [[RSSsController alloc] init];
 
 	UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:c];
 

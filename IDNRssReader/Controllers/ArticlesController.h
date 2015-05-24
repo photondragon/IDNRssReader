@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RssManage.h"
 
-@interface ArticlesController : UITableViewController
+@interface ArticlesController : UIViewController
+
+@property(nonatomic,strong) RssInfo* rssInfo;
 
 @end
