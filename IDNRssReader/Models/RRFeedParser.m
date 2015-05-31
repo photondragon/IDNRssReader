@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 iosdev.net. All rights reserved.
 //
 
-#import "IDNFeedParser.h"
+#import "RRFeedParser.h"
 
-@interface IDNFeedParser(hidden)
+@interface RRFeedParser(hidden)
 <MWFeedParserDelegate>
 @end
 
-@implementation IDNFeedParser
+@implementation RRFeedParser
 {
 	MWFeedParser* feedParser;
 	MWFeedInfo* feedInfo;
@@ -52,13 +52,13 @@
 
 + (MWFeedInfo*)feedInfoWithUrl:(NSString*)url
 {
-	IDNFeedParser* parser = [[IDNFeedParser alloc] init];
+	RRFeedParser* parser = [[RRFeedParser alloc] init];
 	return [parser feedInfoWithUrl:url];
 }
 
 + (NSArray*)feedItemsWithUrl:(NSString*)url
 {
-	IDNFeedParser* parser = [[IDNFeedParser alloc] init];
+	RRFeedParser* parser = [[RRFeedParser alloc] init];
 	return [parser feedItemsWithUrl:url];
 }
 

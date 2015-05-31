@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		949994401B085AA3000FCB1C /* ArticlesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499943B1B085AA3000FCB1C /* ArticlesController.m */; };
-		9499945B1B085ACE000FCB1C /* IDNFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 949994441B085ACD000FCB1C /* IDNFeedParser.m */; };
 		9499945C1B085ACE000FCB1C /* NSData+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 949994471B085ACD000FCB1C /* NSData+IDNExtend.m */; };
 		9499945D1B085ACE000FCB1C /* NSDate+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 949994491B085ACD000FCB1C /* NSDate+IDNExtend.m */; };
 		9499945E1B085ACE000FCB1C /* NSFileManager+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499944B1B085ACE000FCB1C /* NSFileManager+IDNExtend.m */; };
@@ -35,6 +34,32 @@
 		94D2D6421B11691100432BCC /* MyModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6411B11691100432BCC /* MyModels.m */; };
 		94D2D6451B1169F000432BCC /* RssManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6441B1169F000432BCC /* RssManage.m */; };
 		94D2D6481B11713600432BCC /* RSSsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6471B11713600432BCC /* RSSsController.m */; };
+		94D4A0A01B1A9DBF00F2230E /* CommentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A09F1B1A9DBF00F2230E /* CommentInfo.m */; };
+		94D4A0A31B1AA0B300F2230E /* RRFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0A21B1AA0B300F2230E /* RRFeedParser.m */; };
+		94D4A0AC1B1AA0F300F2230E /* IDNNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0A51B1AA0F300F2230E /* IDNNetwork.m */; };
+		94D4A0AD1B1AA0F300F2230E /* NSDictionary+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0A71B1AA0F300F2230E /* NSDictionary+IDNExtend.m */; };
+		94D4A0AE1B1AA0F300F2230E /* NSError+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0A91B1AA0F300F2230E /* NSError+IDNExtend.m */; };
+		94D4A0AF1B1AA0F300F2230E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0AB1B1AA0F300F2230E /* Reachability.m */; };
+		94D4A0CB1B1AA10300F2230E /* IDNFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0B11B1AA10300F2230E /* IDNFrameView.m */; };
+		94D4A0CC1B1AA10300F2230E /* IDNGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0B31B1AA10300F2230E /* IDNGradientView.m */; };
+		94D4A0CD1B1AA10300F2230E /* IDNMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0B61B1AA10300F2230E /* IDNMainController.m */; };
+		94D4A0CE1B1AA10300F2230E /* IDNSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0B81B1AA10300F2230E /* IDNSearchBar.m */; };
+		94D4A0CF1B1AA10300F2230E /* IDNSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0BA1B1AA10300F2230E /* IDNSideMenuController.m */; };
+		94D4A0D01B1AA10300F2230E /* IDNSplitMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0BC1B1AA10300F2230E /* IDNSplitMainController.m */; };
+		94D4A0D11B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0BE1B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.m */; };
+		94D4A0D21B1AA10300F2230E /* UIPickerView+IDNTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0C01B1AA10300F2230E /* UIPickerView+IDNTap.m */; };
+		94D4A0D31B1AA10300F2230E /* UIScreen+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0C21B1AA10300F2230E /* UIScreen+IDNExtend.m */; };
+		94D4A0D41B1AA10300F2230E /* UIView+IDNCountBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0C41B1AA10300F2230E /* UIView+IDNCountBadge.m */; };
+		94D4A0D51B1AA10300F2230E /* UIView+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0C61B1AA10300F2230E /* UIView+IDNExtend.m */; };
+		94D4A0D61B1AA10300F2230E /* UIViewController+IDNScreenAdapt.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0C81B1AA10300F2230E /* UIViewController+IDNScreenAdapt.m */; };
+		94D4A0D71B1AA10300F2230E /* UIViewController+IDNTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0CA1B1AA10300F2230E /* UIViewController+IDNTransition.m */; };
+		94D4A0DA1B1AA73E00F2230E /* CommentServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0D91B1AA73E00F2230E /* CommentServer.m */; };
+		94D4A0DE1B1AB9AC00F2230E /* CommentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0DD1B1AB9AC00F2230E /* CommentList.m */; };
+		94D4A0E51B1ABAE600F2230E /* SegmentQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0E41B1ABAE600F2230E /* SegmentQuery.m */; };
+		94D4A0E91B1AD18500F2230E /* ArticleInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0E71B1AD18500F2230E /* ArticleInfoController.m */; };
+		94D4A0EA1B1AD18500F2230E /* ArticleInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D4A0E81B1AD18500F2230E /* ArticleInfoController.xib */; };
+		94D4A0EE1B1ADE1E00F2230E /* CommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0EC1B1ADE1E00F2230E /* CommentsController.m */; };
+		94D4A0EF1B1ADE1E00F2230E /* CommentsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D4A0ED1B1ADE1E00F2230E /* CommentsController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +75,6 @@
 /* Begin PBXFileReference section */
 		9499943A1B085AA3000FCB1C /* ArticlesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticlesController.h; sourceTree = "<group>"; };
 		9499943B1B085AA3000FCB1C /* ArticlesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticlesController.m; sourceTree = "<group>"; };
-		949994431B085ACD000FCB1C /* IDNFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNFeedParser.h; sourceTree = "<group>"; };
-		949994441B085ACD000FCB1C /* IDNFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNFeedParser.m; sourceTree = "<group>"; };
 		949994451B085ACD000FCB1C /* IDNFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNFoundation.h; sourceTree = "<group>"; };
 		949994461B085ACD000FCB1C /* NSData+IDNExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+IDNExtend.h"; sourceTree = "<group>"; };
 		949994471B085ACD000FCB1C /* NSData+IDNExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+IDNExtend.m"; sourceTree = "<group>"; };
@@ -106,6 +129,58 @@
 		94D2D6441B1169F000432BCC /* RssManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RssManage.m; sourceTree = "<group>"; };
 		94D2D6461B11713600432BCC /* RSSsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSsController.h; sourceTree = "<group>"; };
 		94D2D6471B11713600432BCC /* RSSsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSsController.m; sourceTree = "<group>"; };
+		94D4A09E1B1A9DBF00F2230E /* CommentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfo.h; sourceTree = "<group>"; };
+		94D4A09F1B1A9DBF00F2230E /* CommentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfo.m; sourceTree = "<group>"; };
+		94D4A0A11B1AA0B300F2230E /* RRFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFeedParser.h; sourceTree = "<group>"; };
+		94D4A0A21B1AA0B300F2230E /* RRFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFeedParser.m; sourceTree = "<group>"; };
+		94D4A0A41B1AA0F300F2230E /* IDNNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNNetwork.h; sourceTree = "<group>"; };
+		94D4A0A51B1AA0F300F2230E /* IDNNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNNetwork.m; sourceTree = "<group>"; };
+		94D4A0A61B1AA0F300F2230E /* NSDictionary+IDNExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+IDNExtend.h"; sourceTree = "<group>"; };
+		94D4A0A71B1AA0F300F2230E /* NSDictionary+IDNExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+IDNExtend.m"; sourceTree = "<group>"; };
+		94D4A0A81B1AA0F300F2230E /* NSError+IDNExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+IDNExtend.h"; sourceTree = "<group>"; };
+		94D4A0A91B1AA0F300F2230E /* NSError+IDNExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+IDNExtend.m"; sourceTree = "<group>"; };
+		94D4A0AA1B1AA0F300F2230E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		94D4A0AB1B1AA0F300F2230E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		94D4A0B01B1AA10300F2230E /* IDNFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNFrameView.h; sourceTree = "<group>"; };
+		94D4A0B11B1AA10300F2230E /* IDNFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNFrameView.m; sourceTree = "<group>"; };
+		94D4A0B21B1AA10300F2230E /* IDNGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNGradientView.h; sourceTree = "<group>"; };
+		94D4A0B31B1AA10300F2230E /* IDNGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNGradientView.m; sourceTree = "<group>"; };
+		94D4A0B41B1AA10300F2230E /* IDNKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNKit.h; sourceTree = "<group>"; };
+		94D4A0B51B1AA10300F2230E /* IDNMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNMainController.h; sourceTree = "<group>"; };
+		94D4A0B61B1AA10300F2230E /* IDNMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNMainController.m; sourceTree = "<group>"; };
+		94D4A0B71B1AA10300F2230E /* IDNSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNSearchBar.h; sourceTree = "<group>"; };
+		94D4A0B81B1AA10300F2230E /* IDNSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNSearchBar.m; sourceTree = "<group>"; };
+		94D4A0B91B1AA10300F2230E /* IDNSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNSideMenuController.h; sourceTree = "<group>"; };
+		94D4A0BA1B1AA10300F2230E /* IDNSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNSideMenuController.m; sourceTree = "<group>"; };
+		94D4A0BB1B1AA10300F2230E /* IDNSplitMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNSplitMainController.h; sourceTree = "<group>"; };
+		94D4A0BC1B1AA10300F2230E /* IDNSplitMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNSplitMainController.m; sourceTree = "<group>"; };
+		94D4A0BD1B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNViewControllerAnimatedTransitioningLeftRight.h; sourceTree = "<group>"; };
+		94D4A0BE1B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNViewControllerAnimatedTransitioningLeftRight.m; sourceTree = "<group>"; };
+		94D4A0BF1B1AA10300F2230E /* UIPickerView+IDNTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPickerView+IDNTap.h"; sourceTree = "<group>"; };
+		94D4A0C01B1AA10300F2230E /* UIPickerView+IDNTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPickerView+IDNTap.m"; sourceTree = "<group>"; };
+		94D4A0C11B1AA10300F2230E /* UIScreen+IDNExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+IDNExtend.h"; sourceTree = "<group>"; };
+		94D4A0C21B1AA10300F2230E /* UIScreen+IDNExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+IDNExtend.m"; sourceTree = "<group>"; };
+		94D4A0C31B1AA10300F2230E /* UIView+IDNCountBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IDNCountBadge.h"; sourceTree = "<group>"; };
+		94D4A0C41B1AA10300F2230E /* UIView+IDNCountBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IDNCountBadge.m"; sourceTree = "<group>"; };
+		94D4A0C51B1AA10300F2230E /* UIView+IDNExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IDNExtend.h"; sourceTree = "<group>"; };
+		94D4A0C61B1AA10300F2230E /* UIView+IDNExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IDNExtend.m"; sourceTree = "<group>"; };
+		94D4A0C71B1AA10300F2230E /* UIViewController+IDNScreenAdapt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IDNScreenAdapt.h"; sourceTree = "<group>"; };
+		94D4A0C81B1AA10300F2230E /* UIViewController+IDNScreenAdapt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IDNScreenAdapt.m"; sourceTree = "<group>"; };
+		94D4A0C91B1AA10300F2230E /* UIViewController+IDNTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IDNTransition.h"; sourceTree = "<group>"; };
+		94D4A0CA1B1AA10300F2230E /* UIViewController+IDNTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IDNTransition.m"; sourceTree = "<group>"; };
+		94D4A0D81B1AA73E00F2230E /* CommentServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentServer.h; sourceTree = "<group>"; };
+		94D4A0D91B1AA73E00F2230E /* CommentServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentServer.m; sourceTree = "<group>"; };
+		94D4A0DB1B1AA7C400F2230E /* RRConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRConstant.h; sourceTree = "<group>"; };
+		94D4A0DC1B1AB9AC00F2230E /* CommentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentList.h; sourceTree = "<group>"; };
+		94D4A0DD1B1AB9AC00F2230E /* CommentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentList.m; sourceTree = "<group>"; };
+		94D4A0E31B1ABAE600F2230E /* SegmentQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentQuery.h; sourceTree = "<group>"; };
+		94D4A0E41B1ABAE600F2230E /* SegmentQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentQuery.m; sourceTree = "<group>"; };
+		94D4A0E61B1AD18500F2230E /* ArticleInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleInfoController.h; sourceTree = "<group>"; };
+		94D4A0E71B1AD18500F2230E /* ArticleInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleInfoController.m; sourceTree = "<group>"; };
+		94D4A0E81B1AD18500F2230E /* ArticleInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleInfoController.xib; sourceTree = "<group>"; };
+		94D4A0EB1B1ADE1E00F2230E /* CommentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsController.h; sourceTree = "<group>"; };
+		94D4A0EC1B1ADE1E00F2230E /* CommentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsController.m; sourceTree = "<group>"; };
+		94D4A0ED1B1ADE1E00F2230E /* CommentsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +210,12 @@
 				949994671B0861A9000FCB1C /* WebViewController.m */,
 				94D2D6461B11713600432BCC /* RSSsController.h */,
 				94D2D6471B11713600432BCC /* RSSsController.m */,
+				94D4A0E61B1AD18500F2230E /* ArticleInfoController.h */,
+				94D4A0E71B1AD18500F2230E /* ArticleInfoController.m */,
+				94D4A0E81B1AD18500F2230E /* ArticleInfoController.xib */,
+				94D4A0EB1B1ADE1E00F2230E /* CommentsController.h */,
+				94D4A0EC1B1ADE1E00F2230E /* CommentsController.m */,
+				94D4A0ED1B1ADE1E00F2230E /* CommentsController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -142,10 +223,19 @@
 		9499943F1B085AA3000FCB1C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				94D4A0A11B1AA0B300F2230E /* RRFeedParser.h */,
+				94D4A0A21B1AA0B300F2230E /* RRFeedParser.m */,
 				94D2D6401B11691100432BCC /* MyModels.h */,
 				94D2D6411B11691100432BCC /* MyModels.m */,
 				94D2D6431B1169F000432BCC /* RssManage.h */,
 				94D2D6441B1169F000432BCC /* RssManage.m */,
+				94D4A09E1B1A9DBF00F2230E /* CommentInfo.h */,
+				94D4A09F1B1A9DBF00F2230E /* CommentInfo.m */,
+				94D4A0D81B1AA73E00F2230E /* CommentServer.h */,
+				94D4A0D91B1AA73E00F2230E /* CommentServer.m */,
+				94D4A0DB1B1AA7C400F2230E /* RRConstant.h */,
+				94D4A0DC1B1AB9AC00F2230E /* CommentList.h */,
+				94D4A0DD1B1AB9AC00F2230E /* CommentList.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,10 +243,16 @@
 		949994421B085ACD000FCB1C /* IDNFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				94D4A0A41B1AA0F300F2230E /* IDNNetwork.h */,
+				94D4A0A51B1AA0F300F2230E /* IDNNetwork.m */,
+				94D4A0A61B1AA0F300F2230E /* NSDictionary+IDNExtend.h */,
+				94D4A0A71B1AA0F300F2230E /* NSDictionary+IDNExtend.m */,
+				94D4A0A81B1AA0F300F2230E /* NSError+IDNExtend.h */,
+				94D4A0A91B1AA0F300F2230E /* NSError+IDNExtend.m */,
+				94D4A0AA1B1AA0F300F2230E /* Reachability.h */,
+				94D4A0AB1B1AA0F300F2230E /* Reachability.m */,
 				949994691B086D00000FCB1C /* IDNAsyncTask.h */,
 				9499946A1B086D00000FCB1C /* IDNAsyncTask.m */,
-				949994431B085ACD000FCB1C /* IDNFeedParser.h */,
-				949994441B085ACD000FCB1C /* IDNFeedParser.m */,
 				949994451B085ACD000FCB1C /* IDNFoundation.h */,
 				949994461B085ACD000FCB1C /* NSData+IDNExtend.h */,
 				949994471B085ACD000FCB1C /* NSData+IDNExtend.m */,
@@ -168,6 +264,8 @@
 				9499944D1B085ACE000FCB1C /* NSPointerArray+IDNExtend.m */,
 				9499944E1B085ACE000FCB1C /* NSString+IDNExtend.h */,
 				9499944F1B085ACE000FCB1C /* NSString+IDNExtend.m */,
+				94D4A0E31B1ABAE600F2230E /* SegmentQuery.h */,
+				94D4A0E41B1ABAE600F2230E /* SegmentQuery.m */,
 			);
 			path = IDNFoundation;
 			sourceTree = "<group>";
@@ -175,6 +273,33 @@
 		949994501B085ACE000FCB1C /* IDNKit */ = {
 			isa = PBXGroup;
 			children = (
+				94D4A0B01B1AA10300F2230E /* IDNFrameView.h */,
+				94D4A0B11B1AA10300F2230E /* IDNFrameView.m */,
+				94D4A0B21B1AA10300F2230E /* IDNGradientView.h */,
+				94D4A0B31B1AA10300F2230E /* IDNGradientView.m */,
+				94D4A0B41B1AA10300F2230E /* IDNKit.h */,
+				94D4A0B51B1AA10300F2230E /* IDNMainController.h */,
+				94D4A0B61B1AA10300F2230E /* IDNMainController.m */,
+				94D4A0B71B1AA10300F2230E /* IDNSearchBar.h */,
+				94D4A0B81B1AA10300F2230E /* IDNSearchBar.m */,
+				94D4A0B91B1AA10300F2230E /* IDNSideMenuController.h */,
+				94D4A0BA1B1AA10300F2230E /* IDNSideMenuController.m */,
+				94D4A0BB1B1AA10300F2230E /* IDNSplitMainController.h */,
+				94D4A0BC1B1AA10300F2230E /* IDNSplitMainController.m */,
+				94D4A0BD1B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.h */,
+				94D4A0BE1B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.m */,
+				94D4A0BF1B1AA10300F2230E /* UIPickerView+IDNTap.h */,
+				94D4A0C01B1AA10300F2230E /* UIPickerView+IDNTap.m */,
+				94D4A0C11B1AA10300F2230E /* UIScreen+IDNExtend.h */,
+				94D4A0C21B1AA10300F2230E /* UIScreen+IDNExtend.m */,
+				94D4A0C31B1AA10300F2230E /* UIView+IDNCountBadge.h */,
+				94D4A0C41B1AA10300F2230E /* UIView+IDNCountBadge.m */,
+				94D4A0C51B1AA10300F2230E /* UIView+IDNExtend.h */,
+				94D4A0C61B1AA10300F2230E /* UIView+IDNExtend.m */,
+				94D4A0C71B1AA10300F2230E /* UIViewController+IDNScreenAdapt.h */,
+				94D4A0C81B1AA10300F2230E /* UIViewController+IDNScreenAdapt.m */,
+				94D4A0C91B1AA10300F2230E /* UIViewController+IDNTransition.h */,
+				94D4A0CA1B1AA10300F2230E /* UIViewController+IDNTransition.m */,
 				949994511B085ACE000FCB1C /* IDNImagePickerController.h */,
 				949994521B085ACE000FCB1C /* IDNImagePickerController.m */,
 				949994531B085ACE000FCB1C /* IDNRefreshControl.h */,
@@ -350,6 +475,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D4A0EA1B1AD18500F2230E /* ArticleInfoController.xib in Resources */,
+				94D4A0EF1B1ADE1E00F2230E /* CommentsController.xib in Resources */,
 				94D267641B0824F100F696B3 /* LaunchScreen.xib in Resources */,
 				94D267611B0824F100F696B3 /* Images.xcassets in Resources */,
 			);
@@ -369,28 +496,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D4A0E51B1ABAE600F2230E /* SegmentQuery.m in Sources */,
 				949994641B085ACE000FCB1C /* UIImage+IDNExtend.m in Sources */,
+				94D4A0CF1B1AA10300F2230E /* IDNSideMenuController.m in Sources */,
+				94D4A0D21B1AA10300F2230E /* UIPickerView+IDNTap.m in Sources */,
 				949994681B0861A9000FCB1C /* WebViewController.m in Sources */,
+				94D4A0A31B1AA0B300F2230E /* RRFeedParser.m in Sources */,
+				94D4A0D61B1AA10300F2230E /* UIViewController+IDNScreenAdapt.m in Sources */,
+				94D4A0AE1B1AA0F300F2230E /* NSError+IDNExtend.m in Sources */,
+				94D4A0AF1B1AA0F300F2230E /* Reachability.m in Sources */,
+				94D4A0DA1B1AA73E00F2230E /* CommentServer.m in Sources */,
+				94D4A0AC1B1AA0F300F2230E /* IDNNetwork.m in Sources */,
 				94D2D6421B11691100432BCC /* MyModels.m in Sources */,
 				94D267591B0824F100F696B3 /* AppDelegate.m in Sources */,
 				949994631B085ACE000FCB1C /* UIBezierPath+IDNExtend.m in Sources */,
 				949994601B085ACE000FCB1C /* NSString+IDNExtend.m in Sources */,
+				94D4A0E91B1AD18500F2230E /* ArticleInfoController.m in Sources */,
+				94D4A0D41B1AA10300F2230E /* UIView+IDNCountBadge.m in Sources */,
+				94D4A0CD1B1AA10300F2230E /* IDNMainController.m in Sources */,
 				94D2678C1B0825F200F696B3 /* GTMNSString+HTML.m in Sources */,
 				949994621B085ACE000FCB1C /* IDNRefreshControl.m in Sources */,
 				9499945E1B085ACE000FCB1C /* NSFileManager+IDNExtend.m in Sources */,
 				94D2D6481B11713600432BCC /* RSSsController.m in Sources */,
+				94D4A0D71B1AA10300F2230E /* UIViewController+IDNTransition.m in Sources */,
 				9499945D1B085ACE000FCB1C /* NSDate+IDNExtend.m in Sources */,
+				94D4A0A01B1A9DBF00F2230E /* CommentInfo.m in Sources */,
+				94D4A0EE1B1ADE1E00F2230E /* CommentsController.m in Sources */,
+				94D4A0D51B1AA10300F2230E /* UIView+IDNExtend.m in Sources */,
+				94D4A0CC1B1AA10300F2230E /* IDNGradientView.m in Sources */,
 				949994651B085ACE000FCB1C /* UIViewController+IDNPrompt.m in Sources */,
 				949994611B085ACE000FCB1C /* IDNImagePickerController.m in Sources */,
+				94D4A0D11B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.m in Sources */,
 				94D267831B08259200F696B3 /* MWFeedParser.m in Sources */,
+				94D4A0D31B1AA10300F2230E /* UIScreen+IDNExtend.m in Sources */,
 				949994401B085AA3000FCB1C /* ArticlesController.m in Sources */,
-				9499945B1B085ACE000FCB1C /* IDNFeedParser.m in Sources */,
+				94D4A0D01B1AA10300F2230E /* IDNSplitMainController.m in Sources */,
 				94D2D6451B1169F000432BCC /* RssManage.m in Sources */,
 				94D267881B0825CF00F696B3 /* NSString+HTML.m in Sources */,
+				94D4A0DE1B1AB9AC00F2230E /* CommentList.m in Sources */,
 				94D267891B0825CF00F696B3 /* NSDate+InternetDateTime.m in Sources */,
+				94D4A0CE1B1AA10300F2230E /* IDNSearchBar.m in Sources */,
+				94D4A0CB1B1AA10300F2230E /* IDNFrameView.m in Sources */,
 				9499945C1B085ACE000FCB1C /* NSData+IDNExtend.m in Sources */,
 				94D267821B08259200F696B3 /* MWFeedItem.m in Sources */,
 				94D267561B0824F100F696B3 /* main.m in Sources */,
+				94D4A0AD1B1AA0F300F2230E /* NSDictionary+IDNExtend.m in Sources */,
 				9499946B1B086D00000FCB1C /* IDNAsyncTask.m in Sources */,
 				9499945F1B085ACE000FCB1C /* NSPointerArray+IDNExtend.m in Sources */,
 				94D267811B08259200F696B3 /* MWFeedInfo.m in Sources */,

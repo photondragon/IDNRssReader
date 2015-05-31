@@ -10,7 +10,7 @@
 #import "MWFeedParser.h"
 
 // Rss解析器
-@interface IDNFeedParser : NSObject
+@interface RRFeedParser : NSObject
 
 + (MWFeedInfo*)feedInfoWithUrl:(NSString*)url;
 + (NSArray*)feedItemsWithUrl:(NSString*)url; // 返回MWFeedItem对象的数组

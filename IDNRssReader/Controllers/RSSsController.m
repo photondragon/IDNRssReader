@@ -8,7 +8,7 @@
 
 #import "RSSsController.h"
 #import "MyModels.h"
-#import "IDNFeedParser.h"
+#import "RRFeedParser.h"
 #import "ArticlesController.h"
 #import "UIViewController+IDNPrompt.h"
 #import "IDNAsyncTask.h"
@@ -71,7 +71,7 @@ UITableViewDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	MWFeedInfo* mwinfo = [IDNFeedParser feedInfoWithUrl:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
+	MWFeedInfo* mwinfo = [RRFeedParser feedInfoWithUrl:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
 
 	RssInfo* info = [[RssInfo alloc] init];
 	info.url = mwinfo.url.absoluteString;
@@ -142,7 +142,7 @@ UITableViewDelegate>
 	self.submitting = YES;
 	[self prompting:@"正在获取订阅信息"];
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		MWFeedInfo* mwinfo = [IDNFeedParser feedInfoWithUrl:rssUrl];
+		MWFeedInfo* mwinfo = [RRFeedParser feedInfoWithUrl:rssUrl];
 
 		RssInfo* info = [[RssInfo alloc] init];
 		info.url = mwinfo.url.absoluteString;
@@ -182,7 +182,7 @@ UITableViewDelegate>
 	self.submitting = YES;
 	[self prompting:@"正在获取订阅信息"];
 	[IDNAsyncTask putTaskWithKey:rssUrl group:nil task:^id{
-		MWFeedInfo* mwinfo = [IDNFeedParser feedInfoWithUrl:rssUrl];
+		MWFeedInfo* mwinfo = [RRFeedParser feedInfoWithUrl:rssUrl];
 		if(mwinfo==nil)
 			return nil;
 		RssInfo* info = [[RssInfo alloc] init];

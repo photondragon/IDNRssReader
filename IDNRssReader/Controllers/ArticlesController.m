@@ -7,10 +7,10 @@
 //
 
 #import "ArticlesController.h"
-#import "IDNFeedParser.h"
+#import "RRFeedParser.h"
 #import "UIViewController+IDNPrompt.h"
 #import "IDNRefreshControl.h"
-#import "WebViewController.h"
+#import "ArticleInfoController.h"
 #import "IDNAsyncTask.h"
 
 @interface ArticlesController ()
@@ -81,7 +81,7 @@ UITableViewDelegate>
 	[IDNAsyncTask putTaskWithKey:@"articles" group:nil task:^id{
 		if([IDNAsyncTask isTaskCancelled])
 			return nil;
-		NSArray* articles  = [IDNFeedParser feedItemsWithUrl:url];
+		NSArray* articles  = [RRFeedParser feedItemsWithUrl:url];
 		if(articles==nil)
 		{
 			NSDictionary* errorInfo = @{NSLocalizedDescriptionKey:@"解析失败"};
@@ -149,7 +149,7 @@ UITableViewDelegate>
 {
 	MWFeedItem* article = self.articles[indexPath.row];
 
-	WebViewController* c = [[WebViewController alloc] init];
+	ArticleInfoController* c = [[ArticleInfoController alloc] init];
 	c.url = article.link;
 	[self.navigationController pushViewController:c animated:YES];
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsController">
+            <connections>
+                <outlet property="tableView" destination="clp-eD-92Z" id="3nH-Up-u9i"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-Se-emd" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="clp-eD-92Z">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="W4U-nZ-V1b"/>
+                                <outlet property="delegate" destination="-1" id="NHd-10-ClH"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="clp-eD-92Z" firstAttribute="leading" secondItem="1w8-Se-emd" secondAttribute="leading" id="H17-FX-KjC"/>
+                        <constraint firstAttribute="trailing" secondItem="clp-eD-92Z" secondAttribute="trailing" id="LAo-ei-SuZ"/>
+                        <constraint firstAttribute="bottom" secondItem="clp-eD-92Z" secondAttribute="bottom" id="XaS-2d-K6W"/>
+                        <constraint firstItem="clp-eD-92Z" firstAttribute="top" secondItem="1w8-Se-emd" secondAttribute="top" id="dhz-3e-Jr4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="1w8-Se-emd" secondAttribute="trailing" id="7su-Db-dge"/>
+                <constraint firstItem="1w8-Se-emd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="li3-Gm-svC"/>
+                <constraint firstAttribute="bottom" secondItem="1w8-Se-emd" secondAttribute="bottom" id="qLY-Qo-pPc"/>
+                <constraint firstItem="1w8-Se-emd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ybY-fn-bal"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>
