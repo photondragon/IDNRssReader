@@ -12,6 +12,7 @@
 #import "ArticlesController.h"
 #import "UIViewController+IDNPrompt.h"
 #import "IDNAsyncTask.h"
+#import "LoginController.h"
 
 @interface RSSsController ()
 <UITableViewDataSource,
@@ -83,6 +84,14 @@ UITableViewDelegate>
 	[[MyModels rssManager] addRssInfo:info];
 
 	[self.tableView reloadData];
+
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(onLogin:)];
+}
+
+- (void)onLogin:(id)sender
+{
+	LoginController* c = [LoginController new];
+	[self.navigationController pushViewController:c animated:YES];
 }
 
 - (void)setSubmitting:(BOOL)submitting

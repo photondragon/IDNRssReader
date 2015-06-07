@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterController">
+            <connections>
+                <outlet property="frameViewEmail" destination="pM0-M5-tN8" id="2Fw-Qk-7ui"/>
+                <outlet property="frameViewNickname" destination="wC9-sK-YkT" id="u0g-Vp-huD"/>
+                <outlet property="frameViewPassword" destination="aiV-QF-Uco" id="foe-zw-3dU"/>
+                <outlet property="frameViewPassword2" destination="CY0-BE-URd" id="73r-5N-Nkl"/>
+                <outlet property="frameViewUserName" destination="Bai-9T-dRN" id="Wvr-b6-p9p"/>
+                <outlet property="textFieldEmail" destination="IKN-O5-5tK" id="t2R-6i-TJ6"/>
+                <outlet property="textFieldNickname" destination="DIK-My-ISd" id="obR-Cc-jNi"/>
+                <outlet property="textFieldPassword" destination="4n4-S8-GcW" id="uxO-Ja-Qco"/>
+                <outlet property="textFieldPassword2" destination="4bl-IF-gXI" id="0Ej-OA-iOi"/>
+                <outlet property="textFieldUserName" destination="xUe-aT-eSt" id="7xa-7c-T4e"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bai-9T-dRN" userLabel="Frame View username" customClass="IDNFrameView">
+                    <rect key="frame" x="20" y="16" width="280" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hello" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xUe-aT-eSt">
+                            <rect key="frame" x="8" y="0.0" width="264" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="xUe-aT-eSt" secondAttribute="trailing" constant="8" id="Dj7-sh-CA5"/>
+                        <constraint firstAttribute="bottom" secondItem="xUe-aT-eSt" secondAttribute="bottom" id="ECu-SN-jLw"/>
+                        <constraint firstAttribute="height" constant="40" id="GQ2-Ej-QqA"/>
+                        <constraint firstItem="xUe-aT-eSt" firstAttribute="leading" secondItem="Bai-9T-dRN" secondAttribute="leading" constant="8" id="jCV-qU-OaP"/>
+                        <constraint firstItem="xUe-aT-eSt" firstAttribute="top" secondItem="Bai-9T-dRN" secondAttribute="top" id="tS6-UH-Afx"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pM0-M5-tN8" userLabel="Frame View email" customClass="IDNFrameView">
+                    <rect key="frame" x="20" y="64" width="280" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hello@123.com" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKN-O5-5tK">
+                            <rect key="frame" x="8" y="0.0" width="264" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="IKN-O5-5tK" firstAttribute="top" secondItem="pM0-M5-tN8" secondAttribute="top" id="FDI-OP-gIc"/>
+                        <constraint firstItem="IKN-O5-5tK" firstAttribute="leading" secondItem="pM0-M5-tN8" secondAttribute="leading" constant="8" id="RAY-Dc-aLa"/>
+                        <constraint firstAttribute="trailing" secondItem="IKN-O5-5tK" secondAttribute="trailing" constant="8" id="U2t-9N-kp1"/>
+                        <constraint firstAttribute="height" constant="40" id="Z9t-fA-wBv"/>
+                        <constraint firstAttribute="bottom" secondItem="IKN-O5-5tK" secondAttribute="bottom" id="v5B-Zq-BBO"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiV-QF-Uco" userLabel="Frame View password" customClass="IDNFrameView">
+                    <rect key="frame" x="20" y="112" width="280" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4n4-S8-GcW">
+                            <rect key="frame" x="8" y="0.0" width="264" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="4n4-S8-GcW" firstAttribute="top" secondItem="aiV-QF-Uco" secondAttribute="top" id="Ebe-gP-jcP"/>
+                        <constraint firstAttribute="height" constant="40" id="XSd-Zo-SG7"/>
+                        <constraint firstAttribute="trailing" secondItem="4n4-S8-GcW" secondAttribute="trailing" constant="8" id="dMM-v5-ULa"/>
+                        <constraint firstAttribute="bottom" secondItem="4n4-S8-GcW" secondAttribute="bottom" id="wAe-uC-3dy"/>
+                        <constraint firstItem="4n4-S8-GcW" firstAttribute="leading" secondItem="aiV-QF-Uco" secondAttribute="leading" constant="8" id="ww2-Od-mNx"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CY0-BE-URd" userLabel="Frame View comfirm" customClass="IDNFrameView">
+                    <rect key="frame" x="20" y="160" width="280" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" placeholder="确认密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4bl-IF-gXI">
+                            <rect key="frame" x="8" y="0.0" width="264" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="4bl-IF-gXI" secondAttribute="bottom" id="4GU-CI-yLm"/>
+                        <constraint firstItem="4bl-IF-gXI" firstAttribute="leading" secondItem="CY0-BE-URd" secondAttribute="leading" constant="8" id="506-se-TKr"/>
+                        <constraint firstItem="4bl-IF-gXI" firstAttribute="top" secondItem="CY0-BE-URd" secondAttribute="top" id="BbA-WW-Mr4"/>
+                        <constraint firstAttribute="height" constant="40" id="D46-17-TzA"/>
+                        <constraint firstAttribute="trailing" secondItem="4bl-IF-gXI" secondAttribute="trailing" constant="8" id="uJT-7R-Pp9"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC9-sK-YkT" userLabel="Frame View nickname" customClass="IDNFrameView">
+                    <rect key="frame" x="20" y="208" width="280" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hello" placeholder="昵称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DIK-My-ISd">
+                            <rect key="frame" x="8" y="0.0" width="264" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="DIK-My-ISd" secondAttribute="bottom" id="9Wf-cS-kVn"/>
+                        <constraint firstItem="DIK-My-ISd" firstAttribute="leading" secondItem="wC9-sK-YkT" secondAttribute="leading" constant="8" id="B97-OH-R80"/>
+                        <constraint firstAttribute="height" constant="40" id="KBJ-P2-rKY"/>
+                        <constraint firstItem="DIK-My-ISd" firstAttribute="top" secondItem="wC9-sK-YkT" secondAttribute="top" id="uXW-ha-XeI"/>
+                        <constraint firstAttribute="trailing" secondItem="DIK-My-ISd" secondAttribute="trailing" constant="8" id="zdv-Il-3xn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="aiV-QF-Uco" secondAttribute="trailing" constant="20" id="D1H-ck-pal"/>
+                <constraint firstItem="pM0-M5-tN8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="DCE-JT-0r7"/>
+                <constraint firstItem="aiV-QF-Uco" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="GFZ-gK-aDW"/>
+                <constraint firstItem="wC9-sK-YkT" firstAttribute="top" secondItem="CY0-BE-URd" secondAttribute="bottom" constant="8" id="PXJ-UW-q3b"/>
+                <constraint firstAttribute="trailing" secondItem="CY0-BE-URd" secondAttribute="trailing" constant="20" id="UAV-zh-3Rn"/>
+                <constraint firstItem="aiV-QF-Uco" firstAttribute="top" secondItem="pM0-M5-tN8" secondAttribute="bottom" constant="8" id="YUw-JP-dgN"/>
+                <constraint firstItem="Bai-9T-dRN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="bT7-4L-2cY"/>
+                <constraint firstItem="CY0-BE-URd" firstAttribute="top" secondItem="aiV-QF-Uco" secondAttribute="bottom" constant="8" id="dr5-Eh-Rvy"/>
+                <constraint firstItem="pM0-M5-tN8" firstAttribute="top" secondItem="Bai-9T-dRN" secondAttribute="bottom" constant="8" id="gOt-xl-yCC"/>
+                <constraint firstAttribute="trailing" secondItem="Bai-9T-dRN" secondAttribute="trailing" constant="20" id="gfX-TM-Ref"/>
+                <constraint firstItem="aiV-QF-Uco" firstAttribute="top" secondItem="Bai-9T-dRN" secondAttribute="bottom" constant="8" id="hYc-eS-Khe"/>
+                <constraint firstAttribute="trailing" secondItem="wC9-sK-YkT" secondAttribute="trailing" constant="20" id="l3H-71-Nos"/>
+                <constraint firstItem="Bai-9T-dRN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="nlx-7z-QHP"/>
+                <constraint firstItem="CY0-BE-URd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ocM-VZ-C6E"/>
+                <constraint firstAttribute="trailing" secondItem="pM0-M5-tN8" secondAttribute="trailing" constant="20" id="sez-3k-nRJ"/>
+                <constraint firstItem="wC9-sK-YkT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="xCe-JV-kjA"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="hYc-eS-Khe"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

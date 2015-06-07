@@ -60,6 +60,13 @@
 		94D4A0EA1B1AD18500F2230E /* ArticleInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D4A0E81B1AD18500F2230E /* ArticleInfoController.xib */; };
 		94D4A0EE1B1ADE1E00F2230E /* CommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0EC1B1ADE1E00F2230E /* CommentsController.m */; };
 		94D4A0EF1B1ADE1E00F2230E /* CommentsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D4A0ED1B1ADE1E00F2230E /* CommentsController.xib */; };
+		94D75C491B23E7F00077D255 /* UserServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D75C481B23E7F00077D255 /* UserServer.m */; };
+		94D75C4C1B23E8110077D255 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D75C4B1B23E8110077D255 /* UserProfile.m */; };
+		94D75C501B23F1800077D255 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D75C4E1B23F1800077D255 /* LoginController.m */; };
+		94D75C511B23F1800077D255 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D75C4F1B23F1800077D255 /* LoginController.xib */; };
+		94D75C541B23F7070077D255 /* IDNColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D75C531B23F7070077D255 /* IDNColorButton.m */; };
+		94D98E161B241BD700D80734 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D98E141B241BD700D80734 /* RegisterController.m */; };
+		94D98E171B241BD700D80734 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D98E151B241BD700D80734 /* RegisterController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +188,18 @@
 		94D4A0EB1B1ADE1E00F2230E /* CommentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsController.h; sourceTree = "<group>"; };
 		94D4A0EC1B1ADE1E00F2230E /* CommentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsController.m; sourceTree = "<group>"; };
 		94D4A0ED1B1ADE1E00F2230E /* CommentsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsController.xib; sourceTree = "<group>"; };
+		94D75C471B23E7F00077D255 /* UserServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserServer.h; sourceTree = "<group>"; };
+		94D75C481B23E7F00077D255 /* UserServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserServer.m; sourceTree = "<group>"; };
+		94D75C4A1B23E8110077D255 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		94D75C4B1B23E8110077D255 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		94D75C4D1B23F1800077D255 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		94D75C4E1B23F1800077D255 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		94D75C4F1B23F1800077D255 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
+		94D75C521B23F7070077D255 /* IDNColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNColorButton.h; sourceTree = "<group>"; };
+		94D75C531B23F7070077D255 /* IDNColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNColorButton.m; sourceTree = "<group>"; };
+		94D98E131B241BD700D80734 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		94D98E141B241BD700D80734 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		94D98E151B241BD700D80734 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +235,12 @@
 				94D4A0EB1B1ADE1E00F2230E /* CommentsController.h */,
 				94D4A0EC1B1ADE1E00F2230E /* CommentsController.m */,
 				94D4A0ED1B1ADE1E00F2230E /* CommentsController.xib */,
+				94D75C4D1B23F1800077D255 /* LoginController.h */,
+				94D75C4E1B23F1800077D255 /* LoginController.m */,
+				94D75C4F1B23F1800077D255 /* LoginController.xib */,
+				94D98E131B241BD700D80734 /* RegisterController.h */,
+				94D98E141B241BD700D80734 /* RegisterController.m */,
+				94D98E151B241BD700D80734 /* RegisterController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +248,7 @@
 		9499943F1B085AA3000FCB1C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				94D4A0DB1B1AA7C400F2230E /* RRConstant.h */,
 				94D4A0A11B1AA0B300F2230E /* RRFeedParser.h */,
 				94D4A0A21B1AA0B300F2230E /* RRFeedParser.m */,
 				94D2D6401B11691100432BCC /* MyModels.h */,
@@ -233,9 +259,12 @@
 				94D4A09F1B1A9DBF00F2230E /* CommentInfo.m */,
 				94D4A0D81B1AA73E00F2230E /* CommentServer.h */,
 				94D4A0D91B1AA73E00F2230E /* CommentServer.m */,
-				94D4A0DB1B1AA7C400F2230E /* RRConstant.h */,
 				94D4A0DC1B1AB9AC00F2230E /* CommentList.h */,
 				94D4A0DD1B1AB9AC00F2230E /* CommentList.m */,
+				94D75C471B23E7F00077D255 /* UserServer.h */,
+				94D75C481B23E7F00077D255 /* UserServer.m */,
+				94D75C4A1B23E8110077D255 /* UserProfile.h */,
+				94D75C4B1B23E8110077D255 /* UserProfile.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,6 +339,8 @@
 				949994581B085ACE000FCB1C /* UIImage+IDNExtend.m */,
 				949994591B085ACE000FCB1C /* UIViewController+IDNPrompt.h */,
 				9499945A1B085ACE000FCB1C /* UIViewController+IDNPrompt.m */,
+				94D75C521B23F7070077D255 /* IDNColorButton.h */,
+				94D75C531B23F7070077D255 /* IDNColorButton.m */,
 			);
 			path = IDNKit;
 			sourceTree = "<group>";
@@ -477,7 +508,9 @@
 			files = (
 				94D4A0EA1B1AD18500F2230E /* ArticleInfoController.xib in Resources */,
 				94D4A0EF1B1ADE1E00F2230E /* CommentsController.xib in Resources */,
+				94D98E171B241BD700D80734 /* RegisterController.xib in Resources */,
 				94D267641B0824F100F696B3 /* LaunchScreen.xib in Resources */,
+				94D75C511B23F1800077D255 /* LoginController.xib in Resources */,
 				94D267611B0824F100F696B3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +533,7 @@
 				949994641B085ACE000FCB1C /* UIImage+IDNExtend.m in Sources */,
 				94D4A0CF1B1AA10300F2230E /* IDNSideMenuController.m in Sources */,
 				94D4A0D21B1AA10300F2230E /* UIPickerView+IDNTap.m in Sources */,
+				94D75C4C1B23E8110077D255 /* UserProfile.m in Sources */,
 				949994681B0861A9000FCB1C /* WebViewController.m in Sources */,
 				94D4A0A31B1AA0B300F2230E /* RRFeedParser.m in Sources */,
 				94D4A0D61B1AA10300F2230E /* UIViewController+IDNScreenAdapt.m in Sources */,
@@ -510,8 +544,10 @@
 				94D2D6421B11691100432BCC /* MyModels.m in Sources */,
 				94D267591B0824F100F696B3 /* AppDelegate.m in Sources */,
 				949994631B085ACE000FCB1C /* UIBezierPath+IDNExtend.m in Sources */,
+				94D98E161B241BD700D80734 /* RegisterController.m in Sources */,
 				949994601B085ACE000FCB1C /* NSString+IDNExtend.m in Sources */,
 				94D4A0E91B1AD18500F2230E /* ArticleInfoController.m in Sources */,
+				94D75C541B23F7070077D255 /* IDNColorButton.m in Sources */,
 				94D4A0D41B1AA10300F2230E /* UIView+IDNCountBadge.m in Sources */,
 				94D4A0CD1B1AA10300F2230E /* IDNMainController.m in Sources */,
 				94D2678C1B0825F200F696B3 /* GTMNSString+HTML.m in Sources */,
@@ -526,12 +562,14 @@
 				94D4A0CC1B1AA10300F2230E /* IDNGradientView.m in Sources */,
 				949994651B085ACE000FCB1C /* UIViewController+IDNPrompt.m in Sources */,
 				949994611B085ACE000FCB1C /* IDNImagePickerController.m in Sources */,
+				94D75C491B23E7F00077D255 /* UserServer.m in Sources */,
 				94D4A0D11B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.m in Sources */,
 				94D267831B08259200F696B3 /* MWFeedParser.m in Sources */,
 				94D4A0D31B1AA10300F2230E /* UIScreen+IDNExtend.m in Sources */,
 				949994401B085AA3000FCB1C /* ArticlesController.m in Sources */,
 				94D4A0D01B1AA10300F2230E /* IDNSplitMainController.m in Sources */,
 				94D2D6451B1169F000432BCC /* RssManage.m in Sources */,
+				94D75C501B23F1800077D255 /* LoginController.m in Sources */,
 				94D267881B0825CF00F696B3 /* NSString+HTML.m in Sources */,
 				94D4A0DE1B1AB9AC00F2230E /* CommentList.m in Sources */,
 				94D267891B0825CF00F696B3 /* NSDate+InternetDateTime.m in Sources */,
