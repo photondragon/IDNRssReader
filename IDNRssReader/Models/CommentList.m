@@ -48,7 +48,7 @@
 
 - (BOOL)isRecordModifiedWithOldInfo:(id)oldInfo newInfo:(id)newInfo
 {
-	return YES;
+	return NO;
 }
 
 - (void)asyncMoreWithFinishedBlock:(void (^)(NSError*error))finished;

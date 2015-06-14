@@ -100,7 +100,7 @@
 - (NSArray*)commentsAfterComment:(CommentInfo*)comment count:(NSUInteger)count linkhash:(NSString*)linkhash error:(NSError**)error;
 {
 	NSDictionary* parameters = @{
-								 @"after":[comment.updateTime stringWithFormat:@"yyyyMMddHHmmssFFF"],
+								 @"after":@(comment.ID),//[comment.updateTime stringWithFormat:@"yyyyMMddHHmmssFFF"],
 								 @"count":@(count),
 								 @"linkhash":linkhash,
 								 };

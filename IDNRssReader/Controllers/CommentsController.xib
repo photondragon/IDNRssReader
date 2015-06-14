@@ -7,7 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsController">
             <connections>
+                <outlet property="bottomBar" destination="aXy-MP-4cd" id="kLA-iq-qo7"/>
+                <outlet property="btnSubmit" destination="vgh-4x-XMW" id="pyZ-cb-zW2"/>
+                <outlet property="constraintContentBottom" destination="qLY-Qo-pPc" id="Mn7-bw-VzW"/>
+                <outlet property="constraintTextViewHeight" destination="lSO-HE-I7l" id="fcd-bU-27k"/>
                 <outlet property="tableView" destination="clp-eD-92Z" id="3nH-Up-u9i"/>
+                <outlet property="textViewComment" destination="oj0-6v-rwb" id="aaz-ye-5UQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,21 +25,73 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="clp-eD-92Z">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="W4U-nZ-V1b"/>
                                 <outlet property="delegate" destination="-1" id="NHd-10-ClH"/>
                             </connections>
                         </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXy-MP-4cd">
+                            <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgh-4x-XMW">
+                                    <rect key="frame" x="282" y="10" width="30" height="30"/>
+                                    <state key="normal" title="提交">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnSubmitClicked:" destination="-1" eventType="touchUpInside" id="YCT-lk-jQc"/>
+                                    </connections>
+                                </button>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oj0-6v-rwb">
+                                    <rect key="frame" x="8" y="8" width="266" height="33"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="117" id="72l-KL-pQI"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="Tye-Hf-FQ0"/>
+                                        <constraint firstAttribute="height" priority="999" constant="33" id="lSO-HE-I7l"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="jBw-QN-bXb"/>
+                                    </connections>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.89592592592592579" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="oj0-6v-rwb" secondAttribute="bottom" constant="8" id="1jG-IQ-Abo"/>
+                                <constraint firstItem="oj0-6v-rwb" firstAttribute="top" secondItem="aXy-MP-4cd" secondAttribute="top" constant="8" id="ISF-hq-k6j"/>
+                                <constraint firstAttribute="trailing" secondItem="vgh-4x-XMW" secondAttribute="trailing" constant="8" id="QKg-Oa-5HZ"/>
+                                <constraint firstItem="vgh-4x-XMW" firstAttribute="leading" secondItem="oj0-6v-rwb" secondAttribute="trailing" constant="8" id="dWZ-bw-mGd"/>
+                                <constraint firstAttribute="height" constant="44" id="h1O-cP-2MH"/>
+                                <constraint firstItem="oj0-6v-rwb" firstAttribute="leading" secondItem="aXy-MP-4cd" secondAttribute="leading" constant="8" id="nZY-Cw-d8Z"/>
+                                <constraint firstAttribute="centerY" secondItem="vgh-4x-XMW" secondAttribute="centerY" id="oVP-aY-5Af"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="h1O-cP-2MH"/>
+                                </mask>
+                            </variation>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="aXy-MP-4cd" firstAttribute="top" secondItem="clp-eD-92Z" secondAttribute="bottom" id="3A7-w4-mhC"/>
                         <constraint firstItem="clp-eD-92Z" firstAttribute="leading" secondItem="1w8-Se-emd" secondAttribute="leading" id="H17-FX-KjC"/>
                         <constraint firstAttribute="trailing" secondItem="clp-eD-92Z" secondAttribute="trailing" id="LAo-ei-SuZ"/>
+                        <constraint firstAttribute="trailing" secondItem="aXy-MP-4cd" secondAttribute="trailing" id="PLE-KX-5Y5"/>
+                        <constraint firstAttribute="bottom" secondItem="aXy-MP-4cd" secondAttribute="bottom" id="U9L-wb-kmG"/>
                         <constraint firstAttribute="bottom" secondItem="clp-eD-92Z" secondAttribute="bottom" id="XaS-2d-K6W"/>
                         <constraint firstItem="clp-eD-92Z" firstAttribute="top" secondItem="1w8-Se-emd" secondAttribute="top" id="dhz-3e-Jr4"/>
+                        <constraint firstItem="aXy-MP-4cd" firstAttribute="leading" secondItem="1w8-Se-emd" secondAttribute="leading" id="t2T-ri-yVj"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="XaS-2d-K6W"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

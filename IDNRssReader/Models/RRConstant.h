@@ -9,7 +9,8 @@
 #ifndef IDNRssReader_RRConstant_h
 #define IDNRssReader_RRConstant_h
 
-#define RRHostName @"http://www.iosdev.net"
+#define RRHostName @"http://feed.iosdev.net"
+//#define RRHostName @"http://192.168.1.80:8000"
 
 #define RRErrorDomainServer @"RRErrorDomainServer"
 

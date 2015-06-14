@@ -12,16 +12,29 @@
 #import "IDNKit.h"
 #import "CommentServer.h"
 #import "IDNAsyncTask.h"
+#import "CommentCell.h"
 
 @interface CommentsController ()
 <UITableViewDataSource,
-UITableViewDelegate>
+UITableViewDelegate,
+UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong) CommentList* comments;
 @property(nonatomic) BOOL loading;
 @property(nonatomic) BOOL isFirstLoad;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintContentBottom;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnSubmit;
+@property (weak, nonatomic) IBOutlet UITextView *textViewComment;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTextViewHeight;
+
+@property (weak, nonatomic) IBOutlet UIView *bottomBar;
+
+@property(nonatomic,strong) CommentCell* calcCell; //用于根据文本计算大小
 
 @end
 
@@ -30,15 +43,36 @@ UITableViewDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+	__weak CommentsController* wself = self;
+
+	self.view.keyboardFrameWillChangeBlock = ^(CGFloat bottomDistance, double animationDuration, UIViewAnimationCurve animationCurve){
+		CommentsController* sself = wself;
+
+		[UIView animateWithDuration:animationDuration animations:^{
+			sself.constraintContentBottom.constant = bottomDistance;
+		}];
+	};
+
 	self.edgesForExtendedLayout = 0;
 	self.title = @"评论";
 
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(comment:)];
-
-	[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+	self.tableView.estimatedRowHeight = 60;
+	[self.tableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil] forCellReuseIdentifier:@"CommentCell"];
 
 	[self.tableView.topRefreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
 	[self.tableView.bottomRefreshControl addTarget:self action:@selector(more:) forControlEvents:UIControlEventValueChanged];
+
+	self.textViewComment.layer.cornerRadius = 6;
+	self.textViewComment.layer.borderWidth = 1.0/[UIScreen mainScreen].scale;
+	self.textViewComment.layer.borderColor = [UIColor colorWithWhite:0.7 alpha:1.0].CGColor;
+
+	self.bottomBar.layer.shadowRadius = 1.0;
+	self.bottomBar.layer.shadowColor = [UIColor blackColor].CGColor;
+//	self.bottomBar.layer.shadowOffset = CGSizeMake(0, 2);
+	self.bottomBar.layer.shadowOpacity = 0.5;
+
+	NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CommentCell" owner:self options:nil];
+	self.calcCell = nibViews[0];
 }
 
 - (void)refresh:(id)sender
@@ -82,7 +116,7 @@ UITableViewDelegate>
 	if(self.isFirstLoad)
 	{
 		[self prompting:@"正在加载"];
-		self.isFirstLoad = NO;
+//		self.isFirstLoad = NO;
 	}
 	else
 		self.tableView.bottomRefreshControl.refreshing = YES;
@@ -118,7 +152,42 @@ UITableViewDelegate>
 		__weak CommentsController* wself = self;
 		self.comments.listChangedBlock = ^(NSDictionary*deleted, NSDictionary*added, NSDictionary* modified){
 			CommentsController* sself = wself;
-			[sself.tableView reloadData];
+
+			if(sself.isFirstLoad)// 如果是首次刷新，重新加载数据
+			{
+				sself.isFirstLoad = NO;
+				[sself.tableView reloadData];
+				return;
+			}
+			else // 增量刷新
+			{
+				[sself.tableView beginUpdates];
+				if (deleted.count)
+				{
+					NSMutableArray* indexPathes = [NSMutableArray array];
+					for (NSNumber* index in deleted.allKeys) {
+						[indexPathes addObject:[NSIndexPath indexPathForRow:[index integerValue] inSection:0]];
+					}
+					[sself.tableView deleteRowsAtIndexPaths:indexPathes withRowAnimation:UITableViewRowAnimationAutomatic];
+				}
+				if (added.count)
+				{
+					NSMutableArray* indexPathes = [NSMutableArray array];
+					for (NSNumber* index in added.allKeys) {
+						[indexPathes addObject:[NSIndexPath indexPathForRow:[index integerValue] inSection:0]];
+					}
+					[sself.tableView insertRowsAtIndexPaths:indexPathes withRowAnimation:UITableViewRowAnimationAutomatic];
+				}
+				if (modified.count)
+				{
+					NSMutableArray* indexPathes = [NSMutableArray array];
+					for (NSNumber* index in modified.allKeys) {
+						[indexPathes addObject:[NSIndexPath indexPathForRow:[index integerValue] inSection:0]];
+					}
+					[sself.tableView reloadRowsAtIndexPaths:indexPathes withRowAnimation:UITableViewRowAnimationAutomatic];
+				}
+				[sself.tableView endUpdates];
+			}
 		};
 		self.isFirstLoad = YES;
 		[self more:nil];
@@ -130,17 +199,39 @@ UITableViewDelegate>
 	[self.tableView reloadData];
 }
 
-- (void)comment:(id)sender
+- (void)setLoading:(BOOL)loading
 {
+	if(_loading==loading)
+		return;
+	_loading = loading;
+	if(loading)
+	{
+		self.navigationItem.rightBarButtonItem.enabled = NO;
+	}
+	else
+	{
+		self.navigationItem.rightBarButtonItem.enabled = YES;
+	}
+}
+
+- (IBAction)btnSubmitClicked:(id)sender {
+	[self.textViewComment resignFirstResponder];
+
+	if(self.textViewComment.text.length==0)
+		return;
+
 	if(self.loading)
 		return;
 
 	CommentInfo* comment = [[CommentInfo alloc] init];
-	comment.content = [NSString stringWithFormat:@"comment at %@", [NSDate date]];
+	comment.content = self.textViewComment.text;
 	comment.linkHash = self.linkhash;
 
 	self.loading = YES;
 	[self prompting:@"正在提交"];
+
+	if(self.tableView.contentOffset.y > 0)
+		[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 
 	__weak CommentsController* wself = self;
 	[IDNAsyncTask putTask:^id{
@@ -159,7 +250,8 @@ UITableViewDelegate>
 		}
 		else
 		{
-			sself.isFirstLoad = YES;
+			self.textViewComment.text = nil;
+			[self resizeTextView];
 			[sself refresh:nil];
 		}
 	} cancelled:^{
@@ -176,16 +268,48 @@ UITableViewDelegate>
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 60.0;
+	CommentInfo* comment = self.comments.list[indexPath.row];
+	self.calcCell.comment = comment;
+
+	CGSize newSize = [self.calcCell.labelComment sizeThatFits:CGSizeMake(self.tableView.bounds.size.width-16, 0)];
+
+	return newSize.height+16;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+	CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
 	CommentInfo* comment = self.comments.list[indexPath.row];
-	cell.textLabel.text = comment.content;
+	cell.comment = comment;
 
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[self.textViewComment resignFirstResponder];
+}
+
+- (void)resizeTextView
+{
+	CGSize newSize = [self.textViewComment sizeThatFits:self.textViewComment.bounds.size];
+	self.constraintTextViewHeight.constant = newSize.height;
+}
+
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+	if([text isEqualToString:@"\n"])
+	{
+		[self btnSubmitClicked:nil];
+		return NO;
+	}
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[self resizeTextView];
+	});
+	return YES;
 }
 
 @end

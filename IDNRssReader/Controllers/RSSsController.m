@@ -13,11 +13,13 @@
 #import "UIViewController+IDNPrompt.h"
 #import "IDNAsyncTask.h"
 #import "LoginController.h"
+#import "UIView+IDNKeyboard.h"
 
 @interface RSSsController ()
 <UITableViewDataSource,
 UITableViewDelegate>
 
+@property(nonatomic,strong) UIView* contentView;
 @property(nonatomic,strong) UITableView* tableView;
 @property(nonatomic,strong) UIBarButtonItem* btnAdd;
 @property(nonatomic,strong) UIBarButtonItem* btnSubmit;
@@ -52,6 +54,8 @@ UITableViewDelegate>
 	self.navigationItem.rightBarButtonItem = _btnAdd;
 
 	_tableView = [[UITableView alloc] init];
+	if([_tableView respondsToSelector:@selector(setSeparatorInset:)])
+		_tableView.separatorInset = UIEdgeInsetsMake(0, 10000, 0, 0);
 	_tableView.dataSource = self;
 	_tableView.delegate = self;
 	_tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -62,15 +66,32 @@ UITableViewDelegate>
 	_maskView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[_maskView addTarget:self action:@selector(maskViewClicked:) forControlEvents:UIControlEventTouchUpInside];
 
-	UIView* view = [[UIView alloc] init];
-	[view addSubview:_tableView];
-	[view addSubview:_maskView];
+	UIView* contentView = [[UIView alloc] init];
+	contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	[contentView addSubview:_tableView];
+	[contentView addSubview:_maskView];
 
+	UIView* view = [[UIView alloc] init];
+	[view addSubview:contentView];
+
+	self.contentView = contentView;
 	self.view = view;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+	__weak RSSsController* wself = self;
+
+	self.view.keyboardFrameWillChangeBlock = ^(CGFloat bottomDistance, double animationDuration, UIViewAnimationCurve animationCurve){
+		RSSsController* sself = wself;
+
+		CGRect rect = sself.view.bounds;
+		rect.size.height -= bottomDistance;
+		[UIView animateWithDuration:animationDuration animations:^{
+			sself.contentView.frame = rect;
+		}];
+	};
 
 	MWFeedInfo* mwinfo = [RRFeedParser feedInfoWithUrl:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
 
@@ -78,7 +99,7 @@ UITableViewDelegate>
 	info.url = mwinfo.url.absoluteString;
 	info.title = mwinfo.title;
 	info.summary = mwinfo.summary;
-	info.imageUrl = nil;
+	info.imageUrl = mwinfo.imageUrl;
 	info.link = mwinfo.link;
 
 	[[MyModels rssManager] addRssInfo:info];
@@ -236,6 +257,13 @@ UITableViewDelegate>
 	if(cell==nil)
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+
+		if([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)])
+			cell.preservesSuperviewLayoutMargins = NO;
+		if([cell respondsToSelector:@selector(setLayoutMargins:)])
+			cell.layoutMargins = UIEdgeInsetsZero;
+		if([cell respondsToSelector:@selector(setSeparatorInset:)])
+			cell.separatorInset = UIEdgeInsetsZero;
 	}
 
 	RssInfo* info = [MyModels rssManager].list[indexPath.row];
