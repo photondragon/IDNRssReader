@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9402348F1B3AEDCC00BAA390 /* IDNFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9402348E1B3AEDCC00BAA390 /* IDNFileCache.m */; };
 		94255A101B2D11540057B0E1 /* IDNActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94255A051B2D11540057B0E1 /* IDNActivityIndicator.m */; };
 		94255A111B2D11540057B0E1 /* IDNInputHelperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94255A071B2D11540057B0E1 /* IDNInputHelperView.m */; };
 		94255A121B2D11540057B0E1 /* IDNProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94255A091B2D11540057B0E1 /* IDNProgressView.m */; };
@@ -28,22 +29,19 @@
 		949994651B085ACE000FCB1C /* UIViewController+IDNPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499945A1B085ACE000FCB1C /* UIViewController+IDNPrompt.m */; };
 		949994681B0861A9000FCB1C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949994671B0861A9000FCB1C /* WebViewController.m */; };
 		9499946B1B086D00000FCB1C /* IDNAsyncTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499946A1B086D00000FCB1C /* IDNAsyncTask.m */; };
+		94C936361B3E9D4000CB072A /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C9362F1B3E9D4000CB072A /* GTMNSString+HTML.m */; };
+		94C936371B3E9D4000CB072A /* IDNFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C936311B3E9D4000CB072A /* IDNFeedParser.m */; };
+		94C936381B3E9D4000CB072A /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C936331B3E9D4000CB072A /* NSDate+InternetDateTime.m */; };
+		94C936391B3E9D4000CB072A /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C936351B3E9D4000CB072A /* NSString+HTML.m */; };
 		94D267561B0824F100F696B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D267551B0824F100F696B3 /* main.m */; };
 		94D267591B0824F100F696B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D267581B0824F100F696B3 /* AppDelegate.m */; };
 		94D267611B0824F100F696B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94D267601B0824F100F696B3 /* Images.xcassets */; };
 		94D267641B0824F100F696B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D267621B0824F100F696B3 /* LaunchScreen.xib */; };
 		94D267701B0824F100F696B3 /* IDNRssReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2676F1B0824F100F696B3 /* IDNRssReaderTests.m */; };
-		94D267811B08259200F696B3 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2677B1B08259200F696B3 /* MWFeedInfo.m */; };
-		94D267821B08259200F696B3 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2677D1B08259200F696B3 /* MWFeedItem.m */; };
-		94D267831B08259200F696B3 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2677F1B08259200F696B3 /* MWFeedParser.m */; };
-		94D267881B0825CF00F696B3 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D267851B0825CF00F696B3 /* NSString+HTML.m */; };
-		94D267891B0825CF00F696B3 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D267871B0825CF00F696B3 /* NSDate+InternetDateTime.m */; };
-		94D2678C1B0825F200F696B3 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2678B1B0825F200F696B3 /* GTMNSString+HTML.m */; };
 		94D2D6421B11691100432BCC /* MyModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6411B11691100432BCC /* MyModels.m */; };
 		94D2D6451B1169F000432BCC /* RssManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6441B1169F000432BCC /* RssManage.m */; };
 		94D2D6481B11713600432BCC /* RSSsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D2D6471B11713600432BCC /* RSSsController.m */; };
 		94D4A0A01B1A9DBF00F2230E /* CommentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A09F1B1A9DBF00F2230E /* CommentInfo.m */; };
-		94D4A0A31B1AA0B300F2230E /* RRFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0A21B1AA0B300F2230E /* RRFeedParser.m */; };
 		94D4A0AC1B1AA0F300F2230E /* IDNNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0A51B1AA0F300F2230E /* IDNNetwork.m */; };
 		94D4A0AD1B1AA0F300F2230E /* NSDictionary+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0A71B1AA0F300F2230E /* NSDictionary+IDNExtend.m */; };
 		94D4A0AE1B1AA0F300F2230E /* NSError+IDNExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0A91B1AA0F300F2230E /* NSError+IDNExtend.m */; };
@@ -63,7 +61,7 @@
 		94D4A0D71B1AA10300F2230E /* UIViewController+IDNTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0CA1B1AA10300F2230E /* UIViewController+IDNTransition.m */; };
 		94D4A0DA1B1AA73E00F2230E /* CommentServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0D91B1AA73E00F2230E /* CommentServer.m */; };
 		94D4A0DE1B1AB9AC00F2230E /* CommentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0DD1B1AB9AC00F2230E /* CommentList.m */; };
-		94D4A0E51B1ABAE600F2230E /* SegmentQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0E41B1ABAE600F2230E /* SegmentQuery.m */; };
+		94D4A0E51B1ABAE600F2230E /* IDNSegmentQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0E41B1ABAE600F2230E /* IDNSegmentQuery.m */; };
 		94D4A0E91B1AD18500F2230E /* ArticleInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0E71B1AD18500F2230E /* ArticleInfoController.m */; };
 		94D4A0EA1B1AD18500F2230E /* ArticleInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D4A0E81B1AD18500F2230E /* ArticleInfoController.xib */; };
 		94D4A0EE1B1ADE1E00F2230E /* CommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D4A0EC1B1ADE1E00F2230E /* CommentsController.m */; };
@@ -88,6 +86,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9402348D1B3AEDCC00BAA390 /* IDNFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNFileCache.h; sourceTree = "<group>"; };
+		9402348E1B3AEDCC00BAA390 /* IDNFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNFileCache.m; sourceTree = "<group>"; };
 		94255A041B2D11540057B0E1 /* IDNActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNActivityIndicator.h; sourceTree = "<group>"; };
 		94255A051B2D11540057B0E1 /* IDNActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNActivityIndicator.m; sourceTree = "<group>"; };
 		94255A061B2D11540057B0E1 /* IDNInputHelperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNInputHelperView.h; sourceTree = "<group>"; };
@@ -130,6 +130,14 @@
 		949994671B0861A9000FCB1C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		949994691B086D00000FCB1C /* IDNAsyncTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNAsyncTask.h; sourceTree = "<group>"; };
 		9499946A1B086D00000FCB1C /* IDNAsyncTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNAsyncTask.m; sourceTree = "<group>"; };
+		94C9362E1B3E9D4000CB072A /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		94C9362F1B3E9D4000CB072A /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		94C936301B3E9D4000CB072A /* IDNFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNFeedParser.h; sourceTree = "<group>"; };
+		94C936311B3E9D4000CB072A /* IDNFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNFeedParser.m; sourceTree = "<group>"; };
+		94C936321B3E9D4000CB072A /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		94C936331B3E9D4000CB072A /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		94C936341B3E9D4000CB072A /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		94C936351B3E9D4000CB072A /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		94D267501B0824F100F696B3 /* IDNRssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDNRssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94D267541B0824F100F696B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94D267551B0824F100F696B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -140,19 +148,6 @@
 		94D267691B0824F100F696B3 /* IDNRssReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IDNRssReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94D2676E1B0824F100F696B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94D2676F1B0824F100F696B3 /* IDNRssReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDNRssReaderTests.m; sourceTree = "<group>"; };
-		94D2677A1B08259200F696B3 /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
-		94D2677B1B08259200F696B3 /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
-		94D2677C1B08259200F696B3 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
-		94D2677D1B08259200F696B3 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
-		94D2677E1B08259200F696B3 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
-		94D2677F1B08259200F696B3 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
-		94D267801B08259200F696B3 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
-		94D267841B0825CF00F696B3 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
-		94D267851B0825CF00F696B3 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
-		94D267861B0825CF00F696B3 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
-		94D267871B0825CF00F696B3 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
-		94D2678A1B0825F200F696B3 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
-		94D2678B1B0825F200F696B3 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		94D2D6401B11691100432BCC /* MyModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyModels.h; sourceTree = "<group>"; };
 		94D2D6411B11691100432BCC /* MyModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyModels.m; sourceTree = "<group>"; };
 		94D2D6431B1169F000432BCC /* RssManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RssManage.h; sourceTree = "<group>"; };
@@ -161,8 +156,6 @@
 		94D2D6471B11713600432BCC /* RSSsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSsController.m; sourceTree = "<group>"; };
 		94D4A09E1B1A9DBF00F2230E /* CommentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfo.h; sourceTree = "<group>"; };
 		94D4A09F1B1A9DBF00F2230E /* CommentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfo.m; sourceTree = "<group>"; };
-		94D4A0A11B1AA0B300F2230E /* RRFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFeedParser.h; sourceTree = "<group>"; };
-		94D4A0A21B1AA0B300F2230E /* RRFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFeedParser.m; sourceTree = "<group>"; };
 		94D4A0A41B1AA0F300F2230E /* IDNNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNNetwork.h; sourceTree = "<group>"; };
 		94D4A0A51B1AA0F300F2230E /* IDNNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNNetwork.m; sourceTree = "<group>"; };
 		94D4A0A61B1AA0F300F2230E /* NSDictionary+IDNExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+IDNExtend.h"; sourceTree = "<group>"; };
@@ -203,8 +196,8 @@
 		94D4A0DB1B1AA7C400F2230E /* RRConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRConstant.h; sourceTree = "<group>"; };
 		94D4A0DC1B1AB9AC00F2230E /* CommentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentList.h; sourceTree = "<group>"; };
 		94D4A0DD1B1AB9AC00F2230E /* CommentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentList.m; sourceTree = "<group>"; };
-		94D4A0E31B1ABAE600F2230E /* SegmentQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentQuery.h; sourceTree = "<group>"; };
-		94D4A0E41B1ABAE600F2230E /* SegmentQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentQuery.m; sourceTree = "<group>"; };
+		94D4A0E31B1ABAE600F2230E /* IDNSegmentQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDNSegmentQuery.h; sourceTree = "<group>"; };
+		94D4A0E41B1ABAE600F2230E /* IDNSegmentQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDNSegmentQuery.m; sourceTree = "<group>"; };
 		94D4A0E61B1AD18500F2230E /* ArticleInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleInfoController.h; sourceTree = "<group>"; };
 		94D4A0E71B1AD18500F2230E /* ArticleInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleInfoController.m; sourceTree = "<group>"; };
 		94D4A0E81B1AD18500F2230E /* ArticleInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleInfoController.xib; sourceTree = "<group>"; };
@@ -275,8 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				94D4A0DB1B1AA7C400F2230E /* RRConstant.h */,
-				94D4A0A11B1AA0B300F2230E /* RRFeedParser.h */,
-				94D4A0A21B1AA0B300F2230E /* RRFeedParser.m */,
 				94D2D6401B11691100432BCC /* MyModels.h */,
 				94D2D6411B11691100432BCC /* MyModels.m */,
 				94D2D6431B1169F000432BCC /* RssManage.h */,
@@ -319,8 +310,10 @@
 				9499944D1B085ACE000FCB1C /* NSPointerArray+IDNExtend.m */,
 				9499944E1B085ACE000FCB1C /* NSString+IDNExtend.h */,
 				9499944F1B085ACE000FCB1C /* NSString+IDNExtend.m */,
-				94D4A0E31B1ABAE600F2230E /* SegmentQuery.h */,
-				94D4A0E41B1ABAE600F2230E /* SegmentQuery.m */,
+				94D4A0E31B1ABAE600F2230E /* IDNSegmentQuery.h */,
+				94D4A0E41B1ABAE600F2230E /* IDNSegmentQuery.m */,
+				9402348D1B3AEDCC00BAA390 /* IDNFileCache.h */,
+				9402348E1B3AEDCC00BAA390 /* IDNFileCache.m */,
 			);
 			path = IDNFoundation;
 			sourceTree = "<group>";
@@ -383,6 +376,21 @@
 			path = IDNKit;
 			sourceTree = "<group>";
 		};
+		94C9362D1B3E9D4000CB072A /* IDNFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				94C9362E1B3E9D4000CB072A /* GTMNSString+HTML.h */,
+				94C9362F1B3E9D4000CB072A /* GTMNSString+HTML.m */,
+				94C936301B3E9D4000CB072A /* IDNFeedParser.h */,
+				94C936311B3E9D4000CB072A /* IDNFeedParser.m */,
+				94C936321B3E9D4000CB072A /* NSDate+InternetDateTime.h */,
+				94C936331B3E9D4000CB072A /* NSDate+InternetDateTime.m */,
+				94C936341B3E9D4000CB072A /* NSString+HTML.h */,
+				94C936351B3E9D4000CB072A /* NSString+HTML.m */,
+			);
+			path = IDNFeedParser;
+			sourceTree = "<group>";
+		};
 		94D267471B0824F100F696B3 = {
 			isa = PBXGroup;
 			children = (
@@ -404,11 +412,11 @@
 		94D267521B0824F100F696B3 /* IDNRssReader */ = {
 			isa = PBXGroup;
 			children = (
+				94C9362D1B3E9D4000CB072A /* IDNFeedParser */,
 				949994421B085ACD000FCB1C /* IDNFoundation */,
 				949994501B085ACE000FCB1C /* IDNKit */,
 				9499943F1B085AA3000FCB1C /* Models */,
 				949994391B085AA3000FCB1C /* Controllers */,
-				94D267791B08259200F696B3 /* MWFeedParser */,
 				94D267571B0824F100F696B3 /* AppDelegate.h */,
 				94D267581B0824F100F696B3 /* AppDelegate.m */,
 				94D267601B0824F100F696B3 /* Images.xcassets */,
@@ -442,26 +450,6 @@
 				94D2676E1B0824F100F696B3 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		94D267791B08259200F696B3 /* MWFeedParser */ = {
-			isa = PBXGroup;
-			children = (
-				94D2677A1B08259200F696B3 /* MWFeedInfo.h */,
-				94D2677B1B08259200F696B3 /* MWFeedInfo.m */,
-				94D2677C1B08259200F696B3 /* MWFeedItem.h */,
-				94D2677D1B08259200F696B3 /* MWFeedItem.m */,
-				94D2677E1B08259200F696B3 /* MWFeedParser.h */,
-				94D2677F1B08259200F696B3 /* MWFeedParser.m */,
-				94D267801B08259200F696B3 /* MWFeedParser_Private.h */,
-				94D267841B0825CF00F696B3 /* NSString+HTML.h */,
-				94D267851B0825CF00F696B3 /* NSString+HTML.m */,
-				94D267861B0825CF00F696B3 /* NSDate+InternetDateTime.h */,
-				94D267871B0825CF00F696B3 /* NSDate+InternetDateTime.m */,
-				94D2678A1B0825F200F696B3 /* GTMNSString+HTML.h */,
-				94D2678B1B0825F200F696B3 /* GTMNSString+HTML.m */,
-			);
-			path = MWFeedParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,14 +556,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94D4A0E51B1ABAE600F2230E /* SegmentQuery.m in Sources */,
+				94D4A0E51B1ABAE600F2230E /* IDNSegmentQuery.m in Sources */,
 				949994641B085ACE000FCB1C /* UIImage+IDNExtend.m in Sources */,
+				94C936371B3E9D4000CB072A /* IDNFeedParser.m in Sources */,
 				94D4A0CF1B1AA10300F2230E /* IDNSideMenuController.m in Sources */,
 				94D4A0D21B1AA10300F2230E /* UIPickerView+IDNTap.m in Sources */,
 				94255A101B2D11540057B0E1 /* IDNActivityIndicator.m in Sources */,
 				94D75C4C1B23E8110077D255 /* UserProfile.m in Sources */,
 				949994681B0861A9000FCB1C /* WebViewController.m in Sources */,
-				94D4A0A31B1AA0B300F2230E /* RRFeedParser.m in Sources */,
 				94D4A0D61B1AA10300F2230E /* UIViewController+IDNScreenAdapt.m in Sources */,
 				94D4A0AE1B1AA0F300F2230E /* NSError+IDNExtend.m in Sources */,
 				94D4A0AF1B1AA0F300F2230E /* Reachability.m in Sources */,
@@ -587,11 +575,12 @@
 				94255A111B2D11540057B0E1 /* IDNInputHelperView.m in Sources */,
 				94D98E161B241BD700D80734 /* RegisterController.m in Sources */,
 				949994601B085ACE000FCB1C /* NSString+IDNExtend.m in Sources */,
+				94C936381B3E9D4000CB072A /* NSDate+InternetDateTime.m in Sources */,
+				94C936361B3E9D4000CB072A /* GTMNSString+HTML.m in Sources */,
 				94D4A0E91B1AD18500F2230E /* ArticleInfoController.m in Sources */,
 				94D75C541B23F7070077D255 /* IDNColorButton.m in Sources */,
 				94D4A0D41B1AA10300F2230E /* UIView+IDNCountBadge.m in Sources */,
 				94D4A0CD1B1AA10300F2230E /* IDNMainController.m in Sources */,
-				94D2678C1B0825F200F696B3 /* GTMNSString+HTML.m in Sources */,
 				949994621B085ACE000FCB1C /* IDNRefreshControl.m in Sources */,
 				9499945E1B085ACE000FCB1C /* NSFileManager+IDNExtend.m in Sources */,
 				94D2D6481B11713600432BCC /* RSSsController.m in Sources */,
@@ -606,27 +595,24 @@
 				949994651B085ACE000FCB1C /* UIViewController+IDNPrompt.m in Sources */,
 				949994611B085ACE000FCB1C /* IDNImagePickerController.m in Sources */,
 				94D75C491B23E7F00077D255 /* UserServer.m in Sources */,
+				9402348F1B3AEDCC00BAA390 /* IDNFileCache.m in Sources */,
 				94D4A0D11B1AA10300F2230E /* IDNViewControllerAnimatedTransitioningLeftRight.m in Sources */,
-				94D267831B08259200F696B3 /* MWFeedParser.m in Sources */,
 				94D4A0D31B1AA10300F2230E /* UIScreen+IDNExtend.m in Sources */,
 				949994401B085AA3000FCB1C /* ArticlesController.m in Sources */,
 				94D4A0D01B1AA10300F2230E /* IDNSplitMainController.m in Sources */,
 				94255A191B2D55550057B0E1 /* CommentCell.m in Sources */,
 				94D2D6451B1169F000432BCC /* RssManage.m in Sources */,
 				94D75C501B23F1800077D255 /* LoginController.m in Sources */,
-				94D267881B0825CF00F696B3 /* NSString+HTML.m in Sources */,
 				94D4A0DE1B1AB9AC00F2230E /* CommentList.m in Sources */,
-				94D267891B0825CF00F696B3 /* NSDate+InternetDateTime.m in Sources */,
 				94D4A0CE1B1AA10300F2230E /* IDNSearchBar.m in Sources */,
 				94D4A0CB1B1AA10300F2230E /* IDNFrameView.m in Sources */,
 				9499945C1B085ACE000FCB1C /* NSData+IDNExtend.m in Sources */,
-				94D267821B08259200F696B3 /* MWFeedItem.m in Sources */,
+				94C936391B3E9D4000CB072A /* NSString+HTML.m in Sources */,
 				94D267561B0824F100F696B3 /* main.m in Sources */,
 				94D4A0AD1B1AA0F300F2230E /* NSDictionary+IDNExtend.m in Sources */,
 				9499946B1B086D00000FCB1C /* IDNAsyncTask.m in Sources */,
 				9499945F1B085ACE000FCB1C /* NSPointerArray+IDNExtend.m in Sources */,
 				94255A131B2D11540057B0E1 /* IDNScanCodeView.m in Sources */,
-				94D267811B08259200F696B3 /* MWFeedInfo.m in Sources */,
 				94255A141B2D11540057B0E1 /* IDNTopTabController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

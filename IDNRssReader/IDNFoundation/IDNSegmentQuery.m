@@ -1,14 +1,14 @@
 //
-//  SegmentQuery.m
-//  miku
+//  IDNSegmentQuery.h
+//  IDNFramework
 //
-//  Created by fred on 14/11/27.
-//  Copyright (c) 2014年 ywiosdev. All rights reserved.
+//  Created by photondragon on 15/6/22.
+//  Copyright (c) 2015年 iosdev.net. All rights reserved.
 //
 
-#import "SegmentQuery.h"
+#import "IDNSegmentQuery.h"
 
-@interface SegmentQuery()
+@interface IDNSegmentQuery()
 {
 //	NSInteger grossCount;	//查询结果总条数。每获取一段，这个值都可能改变。总是等于服务器上最新一次的查询结果的总条数。
 	NSMutableArray* arrayResult;	//已获取的搜索结果。即使获取了所有的搜索结果，这个数组的元素个数也不一定等于grossCount，可能大也可能小。因为这个数组里的记录是分段获取的，每段的获取时间不一样，有新有旧，所以与服务器上的可能不一致。
@@ -17,7 +17,7 @@
 }
 @end
 
-@implementation SegmentQuery
+@implementation IDNSegmentQuery
 
 - (NSArray*)list
 {
@@ -29,7 +29,7 @@
 
 - (instancetype)init
 {
-	if([self isMemberOfClass:[SegmentQuery class]])
+	if([self isMemberOfClass:[IDNSegmentQuery class]])
 		@throw [NSException exceptionWithName:NSGenericException reason:@"不要实例化SegmentQuery类，应使用其派生类。" userInfo:nil];
 
 	self = [super init];
@@ -55,7 +55,7 @@
 		if(_reachEnd)//已经取得了所有数据
 			return nil;
 		if(isOperating)
-			return [NSError errorWithDomain:@"SegmentQuery" code:0 userInfo:@{NSLocalizedDescriptionKey:@"上一次查询正在进行中，请稍后再试"}];
+			return [NSError errorWithDomain:@"IDNSegmentQuery" code:0 userInfo:@{NSLocalizedDescriptionKey:@"上一次查询正在进行中，请稍后再试"}];
 		isOperating = TRUE;
 		segmentLength = _segmentLength;
 		NSInteger curRecordsCount = arrayResult.count;//已获取的记录条数
@@ -77,7 +77,7 @@
 		if(records==nil)//查询失败
 		{
 			if(error==nil)
-				error = [NSError errorWithDomain:@"SegmentQuery" code:0 userInfo:@{NSLocalizedDescriptionKey:@"未知错误\nSegmentQuery子类没有设置错误信息"}];
+				error = [NSError errorWithDomain:@"IDNSegmentQuery" code:0 userInfo:@{NSLocalizedDescriptionKey:@"未知错误\nSegmentQuery子类没有设置错误信息"}];
 			return error;
 		}
 		if(count>segmentLength)//获取到了segmentLength+1条记录，表示后面还有记录没取完
@@ -124,7 +124,7 @@
 	{
 		@synchronized(self){ isOperating = NO; }
 		if(error==nil)
-			error = [NSError errorWithDomain:@"SegmentQuery" code:0 userInfo:@{NSLocalizedDescriptionKey:@"未知错误\nSegmentQuery子类没有设置错误信息"}];
+			error = [NSError errorWithDomain:@"IDNSegmentQuery" code:0 userInfo:@{NSLocalizedDescriptionKey:@"未知错误\nSegmentQuery子类没有设置错误信息"}];
 		return error;
 	}
 	NSMutableDictionary* added = [NSMutableDictionary dictionary];
@@ -266,7 +266,7 @@
 		{
 			isOperating = NO;
 			if(error==nil)
-				error = [NSError errorWithDomain:@"SegmentQuery" code:0 userInfo:@{NSLocalizedDescriptionKey:@"未知错误\nSegmentQuery子类没有设置错误信息"}];
+				error = [NSError errorWithDomain:@"IDNSegmentQuery" code:0 userInfo:@{NSLocalizedDescriptionKey:@"未知错误\nSegmentQuery子类没有设置错误信息"}];
 			return error;
 		}
 		

@@ -8,10 +8,6 @@
 
 #import "RssManage.h"
 
-@implementation RssInfo
-
-@end
-
 @implementation RssManage
 {
 	NSMutableArray* rssInfos;
@@ -26,18 +22,18 @@
 	return self;
 }
 
-- (RssInfo*)getRssInfoWithUrl:(NSString*)url
+- (IDNFeedInfo*)getRssInfoWithUrl:(NSString*)url
 {
 	if(url.length==0)
 		return nil;
-	for (RssInfo* info in rssInfos) {
+	for (IDNFeedInfo* info in rssInfos) {
 		if([info.url isEqualToString:url])
 			return info;
 	}
 	return nil;
 }
 
-- (BOOL)addRssInfo:(RssInfo*)rssInfo
+- (BOOL)addRssInfo:(IDNFeedInfo*)rssInfo
 {
 	if(rssInfo==nil || rssInfo.url.length==0)
 		return FALSE;
@@ -47,12 +43,12 @@
 	return TRUE;
 }
 
-- (BOOL)delRssInfo:(RssInfo*)rssInfo
+- (BOOL)delRssInfo:(IDNFeedInfo*)rssInfo
 {
 	if(rssInfo==nil || rssInfo.url.length==0)
 		return FALSE;
 	for (NSInteger i = 0; i<rssInfos.count; i++) {
-		RssInfo* info = rssInfos[i];
+		IDNFeedInfo* info = rssInfos[i];
 		if([info.url isEqualToString:rssInfo.url])
 		{
 			[rssInfos removeObjectAtIndex:i];

@@ -8,7 +8,7 @@
 
 #import "RSSsController.h"
 #import "MyModels.h"
-#import "RRFeedParser.h"
+#import "IDNFeedParser.h"
 #import "ArticlesController.h"
 #import "UIViewController+IDNPrompt.h"
 #import "IDNAsyncTask.h"
@@ -93,14 +93,8 @@ UITableViewDelegate>
 		}];
 	};
 
-	MWFeedInfo* mwinfo = [RRFeedParser feedInfoWithUrl:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
-
-	RssInfo* info = [[RssInfo alloc] init];
-	info.url = mwinfo.url.absoluteString;
-	info.title = mwinfo.title;
-	info.summary = mwinfo.summary;
-	info.imageUrl = mwinfo.imageUrl;
-	info.link = mwinfo.link;
+//	IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
+	IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:@"http://news.baidu.com/n?cmd=1&class=civilnews&tn=rss"];
 
 	[[MyModels rssManager] addRssInfo:info];
 
@@ -172,18 +166,11 @@ UITableViewDelegate>
 	self.submitting = YES;
 	[self prompting:@"正在获取订阅信息"];
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		MWFeedInfo* mwinfo = [RRFeedParser feedInfoWithUrl:rssUrl];
-
-		RssInfo* info = [[RssInfo alloc] init];
-		info.url = mwinfo.url.absoluteString;
-		info.title = mwinfo.title;
-		info.summary = mwinfo.summary;
-		info.imageUrl = nil;
-		info.link = mwinfo.link;
+		IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:rssUrl];
 
 		dispatch_async(dispatch_get_main_queue(), ^{
 			self.submitting = NO;
-			if(mwinfo==nil)
+			if(info==nil)
 			{
 				[self prompt:@"获取订阅信息失败" duration:2];
 			}
@@ -212,15 +199,7 @@ UITableViewDelegate>
 	self.submitting = YES;
 	[self prompting:@"正在获取订阅信息"];
 	[IDNAsyncTask putTaskWithKey:rssUrl group:nil task:^id{
-		MWFeedInfo* mwinfo = [RRFeedParser feedInfoWithUrl:rssUrl];
-		if(mwinfo==nil)
-			return nil;
-		RssInfo* info = [[RssInfo alloc] init];
-		info.url = mwinfo.url.absoluteString;
-		info.title = mwinfo.title;
-		info.summary = mwinfo.summary;
-		info.imageUrl = nil;
-		info.link = mwinfo.link;
+		IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:rssUrl];
 		return info;
 	} finished:^(id obj) {
 		self.submitting = NO;
@@ -230,7 +209,7 @@ UITableViewDelegate>
 		}
 		else
 		{
-			if([[MyModels rssManager] addRssInfo:(RssInfo*)obj]==FALSE)
+			if([[MyModels rssManager] addRssInfo:(IDNFeedInfo*)obj]==FALSE)
 				[self prompt:@"订阅信息已存在" duration:2];
 			else{
 				self.textFieldRssUrl.text = nil;
@@ -266,7 +245,7 @@ UITableViewDelegate>
 			cell.separatorInset = UIEdgeInsetsZero;
 	}
 
-	RssInfo* info = [MyModels rssManager].list[indexPath.row];
+	IDNFeedInfo* info = [MyModels rssManager].list[indexPath.row];
 	cell.textLabel.text = info.title;
 	
 	return cell;
@@ -276,7 +255,7 @@ UITableViewDelegate>
 {
 	ArticlesController* c = [[ArticlesController alloc] init];
 	[self.navigationController pushViewController:c animated:YES];
-	RssInfo* info = [MyModels rssManager].list[indexPath.row];
+	IDNFeedInfo* info = [MyModels rssManager].list[indexPath.row];
 	c.rssInfo = info;
 }
 

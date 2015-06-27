@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SegmentQuery.h"
+#import "IDNSegmentQuery.h"
 #import "CommentInfo.h"
 
-@interface CommentList : SegmentQuery
+@interface CommentList : IDNSegmentQuery
 
 @property(nonatomic,strong) NSString* linkhash;
 

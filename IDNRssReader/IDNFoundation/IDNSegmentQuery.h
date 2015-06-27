@@ -1,9 +1,9 @@
 //
-//  SegmentQuery.h
-//  miku
+//  IDNSegmentQuery.h
+//  IDNFramework
 //
-//  Created by fred on 14/11/27.
-//  Copyright (c) 2014年 ywiosdev. All rights reserved.
+//  Created by photondragon on 15/6/22.
+//  Copyright (c) 2015年 iosdev.net. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,7 +12,7 @@
 // 分段查询。只追加后段数据，前段数据（已获取数据）不更新
 // 比如查询结果总共有10k条数据，如果一次把所有的ID都返回，数据量可能太大；所以一次最多只获取500个ID，如果要获取剩下的ID列表，需要再发送一次查询请求。
 // 本类使用了模版方法模式。不要实例化此类。实际中应该继承这个类，重载其-queryAfterRecord:count:方法实现实际的查询操作
-@interface SegmentQuery : NSObject
+@interface IDNSegmentQuery : NSObject
 
 @property(atomic,readonly)BOOL reachEnd;	//是否到达查询结果列表的结尾（获取了所有查询结果）。如果YES，就不需要再调用-more方法了。
 @property(atomic,readonly) NSArray* list;	//（已获取的）查询结果列表。

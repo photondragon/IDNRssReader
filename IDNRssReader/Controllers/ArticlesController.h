@@ -11,6 +11,6 @@
 
 @interface ArticlesController : UIViewController
 
-@property(nonatomic,strong) RssInfo* rssInfo;
+@property(nonatomic,strong) IDNFeedInfo* rssInfo;
 
 @end

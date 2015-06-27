@@ -7,7 +7,7 @@
 //
 
 #import "ArticlesController.h"
-#import "RRFeedParser.h"
+#import "IDNFeedParser.h"
 #import "UIViewController+IDNPrompt.h"
 #import "IDNRefreshControl.h"
 #import "ArticleInfoController.h"
@@ -81,7 +81,7 @@ UITableViewDelegate>
 	[IDNAsyncTask putTaskWithKey:@"articles" group:nil task:^id{
 		if([IDNAsyncTask isTaskCancelled])
 			return nil;
-		NSArray* articles  = [RRFeedParser feedItemsWithUrl:url];
+		NSArray* articles  = [IDNFeedParser feedItemsWithUrl:url];
 		if(articles==nil)
 		{
 			NSDictionary* errorInfo = @{NSLocalizedDescriptionKey:@"解析失败"};
@@ -115,7 +115,7 @@ UITableViewDelegate>
 	[self.tableView reloadData];
 }
 
-- (void)setRssInfo:(RssInfo *)rssInfo
+- (void)setRssInfo:(IDNFeedInfo *)rssInfo
 {
 	[self view];
 	_rssInfo = rssInfo;
@@ -139,7 +139,7 @@ UITableViewDelegate>
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
-	MWFeedItem* article = self.articles[indexPath.row];
+	IDNFeedItem* article = self.articles[indexPath.row];
 	cell.textLabel.text = article.title;
 
     return cell;
@@ -147,7 +147,7 @@ UITableViewDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	MWFeedItem* article = self.articles[indexPath.row];
+	IDNFeedItem* article = self.articles[indexPath.row];
 
 	ArticleInfoController* c = [[ArticleInfoController alloc] init];
 	c.url = article.link;

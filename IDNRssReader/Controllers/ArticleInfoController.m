@@ -19,9 +19,14 @@
 
 @implementation ArticleInfoController
 
+- (void)dealloc
+{
+	self.webView.delegate = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	self.edgesForExtendedLayout	= 0;
 }
 
 - (void)setUrl:(NSString *)url
