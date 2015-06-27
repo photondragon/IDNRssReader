@@ -150,7 +150,7 @@ UITableViewDelegate>
 	IDNFeedItem* article = self.articles[indexPath.row];
 
 	ArticleInfoController* c = [[ArticleInfoController alloc] init];
-	c.url = article.link;
+	c.feedItem = article;
 	[self.navigationController pushViewController:c animated:YES];
 }
 
