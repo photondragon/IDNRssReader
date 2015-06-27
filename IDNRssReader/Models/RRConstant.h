@@ -14,4 +14,6 @@
 
 #define RRErrorDomainServer @"RRErrorDomainServer"
 
+#define UMengAppKey @"558e5bc267e58e5069001dd8"
+
 #endif

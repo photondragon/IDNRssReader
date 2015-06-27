@@ -10,18 +10,35 @@
 #import "IDNKit.h"
 #import "CommentsController.h"
 #import "IDNFoundation.h"
+#import "UMSocial.h"
+#import "RRConstant.h"
 
 @interface ArticleInfoController ()
 <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+@property(nonatomic,strong) NSString* url;
+
 @end
 
 @implementation ArticleInfoController
 
+- (void)dealloc
+{
+//	NSLog(@"%s", __func__);
+	self.webView.delegate = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	self.edgesForExtendedLayout	= 0;
+}
+
+- (void)setFeedItem:(IDNFeedItem *)feedItem
+{
+	_feedItem = feedItem;
+	self.url = feedItem.link;
 }
 
 - (void)setUrl:(NSString *)url
@@ -43,6 +60,21 @@
 #pragma mark Actions
 
 - (IBAction)share:(id)sender {
+	if(self.url==nil)
+		return;
+
+	[UMSocialData defaultData].extConfig.wechatSessionData.url = self.feedItem.link; //设置点击图片后跳转的地址（微信好友）
+	[UMSocialData defaultData].extConfig.wechatTimelineData.url = self.feedItem.link; //设置点击图片后跳转的地址（微信朋友圈）
+
+	[UMSocialData defaultData].extConfig.wechatSessionData.title = @"微信好友title";
+	[UMSocialData defaultData].extConfig.wechatTimelineData.title = @"微信朋友圈title";
+
+	[UMSocialSnsService presentSnsIconSheetView:self
+										 appKey:UMengAppKey
+									  shareText:[NSString stringWithFormat:@"%@\n%@", self.feedItem.title,self.url]
+									 shareImage:nil//[UIImage imageNamed:@"test.jpg"]
+								shareToSnsNames:@[UMShareToWechatTimeline,UMShareToSina,UMShareToWechatSession,UMShareToTencent]
+									   delegate:nil];
 }
 
 - (IBAction)comment:(id)sender {
@@ -62,14 +94,15 @@
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-	[self prompting:@"正在加载"];
+//	[self prompting:@"正在加载"];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-	[self stopPrompt];
+//	NSLog(@"%s", __func__);
+//	[self stopPrompt];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-	[self prompt:[NSString stringWithFormat:@"加载失败\n%@", error.localizedDescription] duration:2];
+//	[self prompt:[NSString stringWithFormat:@"加载失败\n%@", error.localizedDescription] duration:2];
 }
 @end

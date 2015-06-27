@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IDNFeedParser.h"
 
 @interface ArticleInfoController : UIViewController
 
-@property(nonatomic,strong) NSString* url;
+@property(nonatomic,strong) IDNFeedItem* feedItem;
 
 @end

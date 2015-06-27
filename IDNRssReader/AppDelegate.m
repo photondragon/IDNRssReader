@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "RSSsController.h"
 #import "IDNFoundation.h"
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "RRConstant.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+	[UMSocialData setAppKey:UMengAppKey];
+	[UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
 
 	NSLog(@"%@", [NSString documentsPath]);
 	
@@ -56,4 +62,15 @@
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+	return  [UMSocialSnsService handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application
+			openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+		 annotation:(id)annotation
+{
+	return  [UMSocialSnsService handleOpenURL:url];
+}
 @end
