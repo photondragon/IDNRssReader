@@ -93,14 +93,38 @@ UITableViewDelegate>
 		}];
 	};
 
-//	IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
-	IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:@"http://news.baidu.com/n?cmd=1&class=civilnews&tn=rss"];
-
-	[[MyModels rssManager] addRssInfo:info];
-
-	[self.tableView reloadData];
-
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(onLogin:)];
+
+	[self.navigationController prompting:@"正在读取RSS源信息"];
+	[self preAddURL:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
+	[self preAddURL:@"http://news.baidu.com/n?cmd=1&class=civilnews&tn=rss"];
+	[self preAddURL:@"http://www.zhihu.com/rss"];
+}
+
+- (void)preAddURL:(NSString*)feedUrl
+{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+		IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:feedUrl];
+
+		if(info==nil) //失败
+			;//[self.navigationController prompt:@"读取RSS源信息失败" duration:2];
+		else //成功
+		{
+			[self.navigationController stopPrompt];
+
+			// 解析完成后在主线程更新显示
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self addFeedInfo:info];
+			});
+		}
+	});
+}
+
+- (void)addFeedInfo:(IDNFeedInfo*)feedInfo
+{
+	[[MyModels rssManager] addRssInfo:feedInfo];
+	[self.tableView reloadData];
 }
 
 - (void)onLogin:(id)sender
