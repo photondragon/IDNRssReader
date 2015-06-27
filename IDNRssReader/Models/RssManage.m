@@ -7,6 +7,8 @@
 //
 
 #import "RssManage.h"
+#import "IDNFeedParser.h"
+#import "IDNFileCache.h"
 
 @implementation RssManage
 {
@@ -60,6 +62,94 @@
 
 - (NSArray*)list{
 	return rssInfos;
+}
+
++ (NSArray*)cachedFeedItemsWithUrl:(NSString*)url
+{
+	NSData* data = [[IDNFileCache sharedCache] dataWithKey:url];
+	if(data==nil)
+		return nil;
+	return [IDNFeedParser feedItemsWithData:data fromUrl:url];
+}
++ (NSArray*)uncachedFeedItemsWithUrl:(NSString*)url
+{
+	NSData* rssData = [IDNFeedParser dataFromUrl:url];
+	if(rssData==nil)
+		return nil;
+
+	// 获取文章列表
+	NSArray* items = [IDNFeedParser feedItemsWithData:rssData fromUrl:url];
+	if(items==nil)
+		return nil;
+
+	[[IDNFileCache sharedCache] cacheFileWithData:rssData forKey:url];
+
+	return items;
+}
+
++ (NSArray*)feedItemsWithUrl:(NSString*)url
+{
+	NSData* rssData = [[IDNFileCache sharedCache] dataWithKey:url cacheAge:300];
+
+	if(rssData==nil)//缓存中没有
+	{
+		rssData = [IDNFeedParser dataFromUrl:url];
+		if(rssData==nil)
+			return nil;
+	}
+	
+	// 获取文章列表
+	NSArray* items = [IDNFeedParser feedItemsWithData:rssData fromUrl:url];
+	if(items==nil)
+		return nil;
+
+	[[IDNFileCache sharedCache] cacheFileWithData:rssData forKey:url];
+
+	return items;
+}
+
++ (IDNFeedInfo*)cachedFeedInfoWithUrl:(NSString*)url
+{
+	NSData* data = [[IDNFileCache sharedCache] dataWithKey:url];
+	if(data==nil)
+		return nil;
+	return [IDNFeedParser feedInfoWithData:data fromUrl:url];
+}
++ (IDNFeedInfo*)uncachedFeedInfoWithUrl:(NSString*)url
+{
+	NSData* rssData = [IDNFeedParser dataFromUrl:url];
+	if(rssData==nil)
+		return nil;
+
+	// 获取文章列表
+	IDNFeedInfo* info = [IDNFeedParser feedInfoWithData:rssData fromUrl:url];
+	if(info==nil)
+		return nil;
+
+	[[IDNFileCache sharedCache] cacheFileWithData:rssData forKey:url];
+
+	return info;
+}
+
++ (IDNFeedInfo*)feedInfoWithUrl:(NSString*)url
+{
+	NSData* rssData = [[IDNFileCache sharedCache] dataWithKey:url cacheAge:300];
+
+	if(rssData==nil)//缓存中没有
+	{
+		rssData = [IDNFeedParser dataFromUrl:url];
+		if(rssData==nil)
+			return nil;
+	}
+
+	// 获取文章列表
+	IDNFeedInfo* info = [IDNFeedParser feedInfoWithData:rssData fromUrl:url];
+	if(info==nil)
+		return nil;
+
+	[[IDNFileCache sharedCache] cacheFileWithData:rssData forKey:url];
+
+	return info;
 }
 
 @end

@@ -23,7 +23,6 @@ JXBAdPageViewDelegate>
 @property(nonatomic,strong) UITableView* tableView;
 
 @property(nonatomic,strong) NSArray* articles;
-@property(nonatomic) BOOL firstLoad;
 @property(nonatomic) BOOL loading;
 
 @property(nonatomic,strong) JXBAdPageView* imagesView;
@@ -65,8 +64,6 @@ JXBAdPageViewDelegate>
 	[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
 
 	[self.tableView.topRefreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-
-	self.firstLoad = YES;
 }
 
 - (void)refresh:(id)sender
@@ -77,24 +74,19 @@ JXBAdPageViewDelegate>
 		[self prompt:@"加载失败\n无效的URL地址" duration:2];
 		return;
 	}
-	
+
 	if(self.loading)
 		return;
 
 	self.loading = YES;
-	if(self.firstLoad)
-	{
-		[self prompting:@"正在加载"];
-		self.firstLoad = NO;
-	}
-	else
-		self.tableView.topRefreshControl.refreshing = YES;
+	self.tableView.topRefreshControl.refreshing = YES;
 
 	__weak ArticlesController* weakself = self;
 	[IDNAsyncTask putTaskWithKey:@"articles" group:nil task:^id{
 		if([IDNAsyncTask isTaskCancelled])
 			return nil;
-		NSArray* articles  = [IDNFeedParser feedItemsWithUrl:url];
+
+		NSArray* articles = [RssManage uncachedFeedItemsWithUrl:url];
 		if(articles==nil)
 		{
 			NSDictionary* errorInfo = @{NSLocalizedDescriptionKey:@"解析失败"};
@@ -109,20 +101,65 @@ JXBAdPageViewDelegate>
 		}
 		else
 		{
-			NSMutableArray* images = [NSMutableArray new];
-			for (IDNFeedItem* item in (NSArray*)obj) {
-				if(item.image)
-				{
-					[images addObject:item.image];
-					if(images.count>=10)
-						break;
-				}
-			}
-			if(images.count)
-				strongself.images = images;
-			else
-				strongself.images = nil;
+			strongself.articles = obj;
+		}
+		strongself.tableView.topRefreshControl.refreshing = NO;
+		strongself.loading = NO;
+	} cancelled:^{
+		ArticlesController* strongself = weakself;
+		strongself.tableView.topRefreshControl.refreshing = NO;
+		strongself.loading = NO;
+	}];
+}
 
+- (void)firstLoadItems
+{
+	NSString* url = self.rssInfo.url;
+	if(url.length==0)
+	{
+		[self prompt:@"加载失败\n无效的URL地址" duration:2];
+		return;
+	}
+
+	if(self.loading)
+		return;
+
+	self.loading = YES;
+	[self prompting:@"正在加载"];
+
+	__weak ArticlesController* weakself = self;
+	[IDNAsyncTask putTaskWithKey:@"articles" group:nil task:^id{
+		if([IDNAsyncTask isTaskCancelled])
+			return nil;
+
+		//先读缓存
+		{
+			NSArray* cachedItems = [RssManage cachedFeedItemsWithUrl:url];
+			if(cachedItems)
+			{
+				dispatch_async(dispatch_get_main_queue(), ^{
+					ArticlesController* strongself = weakself;
+					strongself.articles = cachedItems;
+					[strongself stopPrompt];
+					strongself.tableView.topRefreshControl.refreshing = YES; //关闭Prompt后，加载还在进行中，所以让刷新控件topRefreshControl动起来
+				});
+			}
+		}
+		NSArray* articles = [RssManage feedItemsWithUrl:url]; //优先缓存，缓存没有再访问网络
+		if(articles==nil)
+		{
+			NSDictionary* errorInfo = @{NSLocalizedDescriptionKey:@"解析失败"};
+			return [NSError errorWithDomain:@"IDNRssReader" code:0 userInfo:errorInfo];
+		}
+		return articles;
+	} finished:^(id obj) {
+		ArticlesController* strongself = weakself;
+		if([obj isKindOfClass:[NSError class]])
+		{
+			[strongself prompt:[NSString stringWithFormat:@"获取文章列表失败\n%@", [obj localizedDescription]] duration:2];
+		}
+		else
+		{
 			strongself.articles = obj;
 			[strongself stopPrompt];
 		}
@@ -157,6 +194,20 @@ JXBAdPageViewDelegate>
 
 - (void)setArticles:(NSArray *)articles
 {
+	NSMutableArray* images = [NSMutableArray new];
+	for (IDNFeedItem* item in articles) {
+		if(item.image)
+		{
+			[images addObject:item.image];
+			if(images.count>=10)
+				break;
+		}
+	}
+	if(images.count)
+		self.images = images;
+	else
+		self.images = nil;
+
 	_articles = articles;
 	[self.tableView reloadData];
 }
@@ -191,7 +242,7 @@ JXBAdPageViewDelegate>
 	else
 	{
 		self.title = rssInfo.title;
-		[self refresh:nil];
+		[self firstLoadItems];
 	}
 }
 

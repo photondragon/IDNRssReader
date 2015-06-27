@@ -105,14 +105,17 @@ UITableViewDelegate>
 {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
-		IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:feedUrl];
+		IDNFeedInfo* info;
+		info = [RssManage cachedFeedInfoWithUrl:feedUrl];
+		if(info==NO)
+			info = [RssManage uncachedFeedInfoWithUrl:feedUrl];
+
+		[self.navigationController stopPrompt];
 
 		if(info==nil) //失败
-			;//[self.navigationController prompt:@"读取RSS源信息失败" duration:2];
+			;
 		else //成功
 		{
-			[self.navigationController stopPrompt];
-
 			// 解析完成后在主线程更新显示
 			dispatch_async(dispatch_get_main_queue(), ^{
 				[self addFeedInfo:info];
@@ -190,7 +193,10 @@ UITableViewDelegate>
 	self.submitting = YES;
 	[self prompting:@"正在获取订阅信息"];
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:rssUrl];
+		IDNFeedInfo* info;
+		info = [RssManage cachedFeedInfoWithUrl:rssUrl];
+		if(info==NO)
+			info = [RssManage uncachedFeedInfoWithUrl:rssUrl];
 
 		dispatch_async(dispatch_get_main_queue(), ^{
 			self.submitting = NO;
@@ -223,7 +229,10 @@ UITableViewDelegate>
 	self.submitting = YES;
 	[self prompting:@"正在获取订阅信息"];
 	[IDNAsyncTask putTaskWithKey:rssUrl group:nil task:^id{
-		IDNFeedInfo* info = [IDNFeedParser feedInfoWithUrl:rssUrl];
+		IDNFeedInfo* info;
+		info = [RssManage cachedFeedInfoWithUrl:rssUrl];
+		if(info==NO)
+			info = [RssManage uncachedFeedInfoWithUrl:rssUrl];
 		return info;
 	} finished:^(id obj) {
 		self.submitting = NO;

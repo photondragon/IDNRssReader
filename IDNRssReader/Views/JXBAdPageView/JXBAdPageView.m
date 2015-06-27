@@ -30,15 +30,15 @@
     return self;
 }
 
-- (void)setFrame:(CGRect)frame
-{
-    [super setFrame:frame];
-    [self initUI];
-}
+//- (void)setFrame:(CGRect)frame
+//{
+//    [super setFrame:frame];
+//    [self initUI];
+//}
 
 - (void)initUI {
 
-	_iDisplayTime = 5;
+//	_iDisplayTime = 5;
 
     _scView = [[UIScrollView alloc] initWithFrame:self.frame];
     _scView.delegate = self;
