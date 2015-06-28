@@ -14,6 +14,7 @@
 #import "IDNAsyncTask.h"
 #import "JXBAdPageView.h"
 #import "UIImageView+WebCache.h"
+#import "IDNFileCache.h"
 
 @interface ArticlesController ()
 <UITableViewDataSource,
@@ -137,6 +138,8 @@ JXBAdPageViewDelegate>
 			NSArray* cachedItems = [RssManage cachedFeedItemsWithUrl:url];
 			if(cachedItems)
 			{
+				if([[IDNFileCache sharedCache] isFileExistWithKey:url cacheAge:300])
+					return cachedItems;
 				dispatch_async(dispatch_get_main_queue(), ^{
 					ArticlesController* strongself = weakself;
 					strongself.articles = cachedItems;

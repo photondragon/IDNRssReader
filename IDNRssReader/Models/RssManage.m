@@ -91,19 +91,24 @@
 {
 	NSData* rssData = [[IDNFileCache sharedCache] dataWithKey:url cacheAge:300];
 
+	BOOL isFromCache;
 	if(rssData==nil)//缓存中没有
 	{
+		isFromCache = NO;
 		rssData = [IDNFeedParser dataFromUrl:url];
 		if(rssData==nil)
 			return nil;
 	}
+	else
+		isFromCache = YES;
 	
 	// 获取文章列表
 	NSArray* items = [IDNFeedParser feedItemsWithData:rssData fromUrl:url];
 	if(items==nil)
 		return nil;
 
-	[[IDNFileCache sharedCache] cacheFileWithData:rssData forKey:url];
+	if(isFromCache==NO)
+		[[IDNFileCache sharedCache] cacheFileWithData:rssData forKey:url];
 
 	return items;
 }
@@ -135,19 +140,24 @@
 {
 	NSData* rssData = [[IDNFileCache sharedCache] dataWithKey:url cacheAge:300];
 
+	BOOL isFromCache;
 	if(rssData==nil)//缓存中没有
 	{
+		isFromCache = NO;
 		rssData = [IDNFeedParser dataFromUrl:url];
 		if(rssData==nil)
 			return nil;
 	}
+	else
+		isFromCache = YES;
 
 	// 获取文章列表
 	IDNFeedInfo* info = [IDNFeedParser feedInfoWithData:rssData fromUrl:url];
 	if(info==nil)
 		return nil;
 
-	[[IDNFileCache sharedCache] cacheFileWithData:rssData forKey:url];
+	if(isFromCache==NO)
+		[[IDNFileCache sharedCache] cacheFileWithData:rssData forKey:url];
 
 	return info;
 }
