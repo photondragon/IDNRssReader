@@ -33,8 +33,16 @@
 	RSSsController* c = [[RSSsController alloc] init];
 
 	UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:c];
+	nav.tabBarItem.title = @"订阅";
 
-	self.window.rootViewController = nav;
+	UINavigationController* nav2 = [UINavigationController new];
+	UINavigationController* nav3 = [UINavigationController new];
+	nav2.tabBarItem.title = @"频道";
+	nav3.tabBarItem.title = @"我的";
+
+	UITabBarController* tab = [[UITabBarController alloc] init];
+	tab.viewControllers = @[nav,nav2,nav3];
+	self.window.rootViewController = tab;
 
 	[self.window makeKeyAndVisible];
 	return YES;

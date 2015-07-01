@@ -38,6 +38,15 @@ JXBAdPageViewDelegate>
 	NSLog(@"%s", __func__);
 }
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		self.hidesBottomBarWhenPushed = YES;
+	}
+	return self;
+}
+
 - (void)loadView
 {
 	_tableView = [[UITableView alloc] init];
