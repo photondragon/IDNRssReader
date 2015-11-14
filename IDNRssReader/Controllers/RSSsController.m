@@ -270,6 +270,7 @@ UITableViewDelegate>
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
 
+		cell.textLabel.font = [UIFont systemFontOfSize:16];
 		if([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)])
 			cell.preservesSuperviewLayoutMargins = NO;
 		if([cell respondsToSelector:@selector(setLayoutMargins:)])
@@ -286,6 +287,8 @@ UITableViewDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 	ArticlesController* c = [[ArticlesController alloc] init];
 	[self.navigationController pushViewController:c animated:YES];
 	IDNFeedInfo* info = [MyModels rssManager].list[indexPath.row];

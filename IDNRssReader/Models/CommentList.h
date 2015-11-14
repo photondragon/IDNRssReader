@@ -7,15 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IDNSegmentQuery.h"
+#import "IDNSegList.h"
 #import "CommentInfo.h"
 
-@interface CommentList : IDNSegmentQuery
+@interface CommentList : IDNSegList
 
 @property(nonatomic,strong) NSString* linkhash;
-
-- (void)asyncMoreWithFinishedBlock:(void (^)(NSError*error))finished;
-- (void)asyncRefreshWithFinishedBlock:(void (^)(NSError*error))finished;
-- (void)asyncReloadWithFinishedBlock:(void (^)(NSError*error))finished;
 
 @end

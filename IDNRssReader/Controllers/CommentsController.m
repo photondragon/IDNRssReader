@@ -17,7 +17,8 @@
 @interface CommentsController ()
 <UITableViewDataSource,
 UITableViewDelegate,
-UITextViewDelegate>
+UITextViewDelegate,
+IDNSegListObserver>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -90,7 +91,7 @@ UITextViewDelegate>
 		self.tableView.topRefreshControl.refreshing = YES;
 
 	__weak CommentsController* wself = self;
-	[self.comments asyncRefreshWithFinishedBlock:^(NSError *error) {
+	[self.comments refreshWithFinishedBlock:^(NSError *error) {
 		CommentsController* sself = wself;
 
 		self.loading = NO;
@@ -122,7 +123,7 @@ UITextViewDelegate>
 		self.tableView.bottomRefreshControl.refreshing = YES;
 
 	__weak CommentsController* wself = self;
-	[self.comments asyncMoreWithFinishedBlock:^(NSError *error) {
+	[self.comments moreWithFinishedBlock:^(NSError *error) {
 		CommentsController* sself = wself;
 
 		self.loading = NO;
@@ -149,46 +150,7 @@ UITextViewDelegate>
 		self.comments = [[CommentList alloc] init];
 		self.comments.linkhash = linkhash;
 
-		__weak CommentsController* wself = self;
-		self.comments.listChangedBlock = ^(NSDictionary*deleted, NSDictionary*added, NSDictionary* modified){
-			CommentsController* sself = wself;
-
-			if(sself.isFirstLoad)// 如果是首次刷新，重新加载数据
-			{
-				sself.isFirstLoad = NO;
-				[sself.tableView reloadData];
-				return;
-			}
-			else // 增量刷新
-			{
-				[sself.tableView beginUpdates];
-				if (deleted.count)
-				{
-					NSMutableArray* indexPathes = [NSMutableArray array];
-					for (NSNumber* index in deleted.allKeys) {
-						[indexPathes addObject:[NSIndexPath indexPathForRow:[index integerValue] inSection:0]];
-					}
-					[sself.tableView deleteRowsAtIndexPaths:indexPathes withRowAnimation:UITableViewRowAnimationAutomatic];
-				}
-				if (added.count)
-				{
-					NSMutableArray* indexPathes = [NSMutableArray array];
-					for (NSNumber* index in added.allKeys) {
-						[indexPathes addObject:[NSIndexPath indexPathForRow:[index integerValue] inSection:0]];
-					}
-					[sself.tableView insertRowsAtIndexPaths:indexPathes withRowAnimation:UITableViewRowAnimationAutomatic];
-				}
-				if (modified.count)
-				{
-					NSMutableArray* indexPathes = [NSMutableArray array];
-					for (NSNumber* index in modified.allKeys) {
-						[indexPathes addObject:[NSIndexPath indexPathForRow:[index integerValue] inSection:0]];
-					}
-					[sself.tableView reloadRowsAtIndexPaths:indexPathes withRowAnimation:UITableViewRowAnimationAutomatic];
-				}
-				[sself.tableView endUpdates];
-			}
-		};
+		[self.comments addSegListObserver:self];
 		self.isFirstLoad = YES;
 		[self more:nil];
 	}
@@ -258,6 +220,19 @@ UITextViewDelegate>
 		CommentsController* sself = wself;
 		sself.loading = NO;
 	}];
+}
+
+- (void)segList:(IDNSegList*)segList modifiedIndics:(NSArray*)modifiedIndics deletedIndics:(NSArray*)deletedIndics addedIndics:(NSArray*)addedIndics
+{
+	if(self.isFirstLoad)// 如果是首次刷新，重新加载数据
+	{
+		self.isFirstLoad = NO;
+		[self.tableView reloadData];
+	}
+	else // 增量刷新
+	{
+		[_tableView refreshRowsModified:modifiedIndics deleted:deletedIndics added:addedIndics inSection:0];
+	}
 }
 
 #pragma mark - Table view data source

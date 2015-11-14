@@ -1,1 +1,1 @@
-pod 'SDWebImage'
+pod 'SDWebImage', '~> 3.7.2'

@@ -12,21 +12,22 @@
 #import "IDNRefreshControl.h"
 #import "ArticleInfoController.h"
 #import "IDNAsyncTask.h"
-#import "JXBAdPageView.h"
+#import "IDNLoopView.h"
 #import "UIImageView+WebCache.h"
 #import "IDNFileCache.h"
 
 @interface ArticlesController ()
 <UITableViewDataSource,
 UITableViewDelegate,
-JXBAdPageViewDelegate>
+IDNLoopViewDataSource,
+IDNLoopViewDelegate>
 
 @property(nonatomic,strong) UITableView* tableView;
 
 @property(nonatomic,strong) NSArray* articles;
 @property(nonatomic) BOOL loading;
 
-@property(nonatomic,strong) JXBAdPageView* imagesView;
+@property(nonatomic,strong) IDNLoopView* imagesView;
 @property(nonatomic,strong) NSArray* images;
 
 @end
@@ -60,9 +61,10 @@ JXBAdPageViewDelegate>
 	CGSize imagesViewSize;
 	imagesViewSize.width = [UIScreen mainScreen].bounds.size.width;
 	imagesViewSize.height = round(imagesViewSize.width/16.0*9.0);
-	_imagesView = [[JXBAdPageView alloc] initWithFrame:CGRectMake(0, 0, imagesViewSize.width, imagesViewSize.height)];
-	_imagesView.bWebImage = YES;
+	_imagesView = [[IDNLoopView alloc] initWithFrame:CGRectMake(0, 0, imagesViewSize.width, imagesViewSize.height)];
+	_imagesView.datasource = self;
 	_imagesView.delegate = self;
+//	[_imagesView.panGestureRecognizer requireGestureRecognizerToFail:self.tableView.panGestureRecognizer];
 
 	self.view = view;
 }
@@ -230,17 +232,18 @@ JXBAdPageViewDelegate>
 	if(images.count==0)
 	{
 		self.tableView.tableHeaderView = nil;
-		[self.imagesView startAdsWithBlock:nil block:nil];
+//		[self.imagesView startAdsWithBlock:nil block:nil];
 	}
 	else
 	{
 		self.tableView.tableHeaderView = self.imagesView;
-		__weak ArticlesController* wself = self;
-		[self.imagesView startAdsWithBlock:images block:^(NSInteger clickIndex) {
-			ArticlesController* sself = wself;
-			[sself imageClickedAtIndex:clickIndex];
-		}];
+//		__weak ArticlesController* wself = self;
+//		[self.imagesView startAdsWithBlock:images block:^(NSInteger clickIndex) {
+//			ArticlesController* sself = wself;
+//			[sself imageClickedAtIndex:clickIndex];
+//		}];
 	}
+	[self.imagesView reloadViews];
 }
 
 - (void)setRssInfo:(IDNFeedInfo *)rssInfo
@@ -269,12 +272,15 @@ JXBAdPageViewDelegate>
     
 	IDNFeedItem* article = self.articles[indexPath.row];
 	cell.textLabel.text = article.title;
+	cell.textLabel.font = [UIFont systemFontOfSize:16];
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 	IDNFeedItem* article = self.articles[indexPath.row];
 
 	ArticleInfoController* c = [[ArticleInfoController alloc] init];
@@ -293,4 +299,34 @@ JXBAdPageViewDelegate>
 	[imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:placeholder];
 }
 
+#pragma mark IDNLoopView datasource & delegate
+
+- (NSInteger)numberOfViewsInLoopView:(IDNLoopView *)loopView
+{
+	return self.images.count;
+}
+
+- (UIView*)loopView:(IDNLoopView *)loopView viewAtIndex:(NSInteger)index reuseView:(UIView *)view
+{
+	UIImageView* imageView;
+	if(view==nil)
+	{
+		imageView = [[UIImageView alloc] init];
+		imageView.contentMode = UIViewContentModeScaleAspectFill;
+		imageView.clipsToBounds = YES;
+	}
+	else
+		imageView = (UIImageView*)view;
+
+	static UIImage* placeholder = nil;
+	if(placeholder==nil)
+		placeholder = [UIImage imageNamed:@"imageLoadFail.jpg"];
+	[imageView sd_setImageWithURL:[NSURL URLWithString:self.images[index]] placeholderImage:placeholder];
+
+	return imageView;
+}
+
+- (void)loopView:(IDNLoopView *)loopView didTapViewAtIndex:(NSInteger)index{
+	[self imageClickedAtIndex:index];
+}
 @end

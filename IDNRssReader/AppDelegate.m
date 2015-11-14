@@ -12,6 +12,7 @@
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
 #import "RRConstant.h"
+#import "ChannelsController.h"
 
 @interface AppDelegate ()
 
@@ -35,9 +36,11 @@
 	UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:c];
 	nav.tabBarItem.title = @"订阅";
 
-	UINavigationController* nav2 = [UINavigationController new];
-	UINavigationController* nav3 = [UINavigationController new];
+	ChannelsController* channels = [ChannelsController new];
+	UINavigationController* nav2 = [[UINavigationController alloc] initWithRootViewController:channels];
 	nav2.tabBarItem.title = @"频道";
+
+	UINavigationController* nav3 = [UINavigationController new];
 	nav3.tabBarItem.title = @"我的";
 
 	UITabBarController* tab = [[UITabBarController alloc] init];

@@ -305,51 +305,39 @@ typedef enum { FeedTypeUnknown, FeedTypeRSS, FeedTypeRSS1, FeedTypeAtom } FeedTy
 	feedParser = nil; // Release after parse
 
 	self.feedInfo = parsingInfo;
-	if(error)
-		self.feedItems = nil;
-	else
+	if(itemsContainer.count>0)
 	{
+		if(error)
+			NSLog(@"解析出了%d个items，但是遇到了错误：\n%@", (int)itemsContainer.count, error);
 		for(IDNFeedItem* item in itemsContainer)
 		{
 			item.image = [IDNFeedParser findImageUrlInContent:item.summary];
 		}
 		self.feedItems = [itemsContainer copy];
 	}
+	else
+	{
+		if(error)
+			self.feedItems = nil;
+	}
 	itemsContainer = nil;
 }
+
+static NSRegularExpression* regex = nil;
 
 + (NSString*)findImageUrlInContent:(NSString*)content
 {
 	if(content.length==0)
 		return nil;
 
-	NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"(<img.*?src=\")(.*?)(\".*?>)" options:0 error:nil];
+	if(regex==nil)
+		regex = [NSRegularExpression regularExpressionWithPattern:@"(<img.*?src=\")(.*?)(\".*?>)" options:0 error:nil];
 
 	NSTextCheckingResult *match = [regex firstMatchInString:content options:0 range:NSMakeRange(0, [content length])];
 
 	if (match == NULL )
 		return nil;
 	return [content substringWithRange:[match rangeAtIndex:2]];
-
-//	NSRange rangeImg0 = [content rangeOfString:@"<img " options:NSCaseInsensitiveSearch];
-//	if(rangeImg0.location==NSNotFound)
-//		return nil;
-//	NSInteger imgStart = rangeImg0.location;
-//	NSRange rangeImg1 = [content rangeOfString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(imgStart, content.length-imgStart)];
-//	if(rangeImg1.location==NSNotFound)
-//		return nil;
-//	NSInteger imgEnd = rangeImg1.location+rangeImg1.length;
-//	NSString* imgString = [content substringWithRange:NSMakeRange(imgStart, imgEnd-imgStart)];
-//
-//	NSRange rangeSrc0 = [imgString rangeOfString:@"src=\"http" options:NSCaseInsensitiveSearch];
-//	if(rangeSrc0.location==NSNotFound)
-//		return nil;
-//	NSInteger srcStart = rangeSrc0.location+rangeSrc0.length-4;
-//	NSRange rangeSrc1 = [imgString rangeOfString:@"\"" options:NSCaseInsensitiveSearch range:NSMakeRange(srcStart, imgString.length-srcStart)];
-//	if(rangeSrc1.location==NSNotFound)
-//		return nil;
-//	NSInteger srcEnd = rangeSrc1.location;
-//	return [imgString substringWithRange:NSMakeRange(srcStart, srcEnd-srcStart)];
 }
 
 // If an error occurs, create NSError and inform delegate
